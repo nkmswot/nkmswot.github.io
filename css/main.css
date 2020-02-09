@@ -237,7 +237,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 
 .tab a.active {
   padding-top: 10px;
-  color: #e74c3c;
+  color: #E74C3C;
 }
 .tab a i{
   font-size: 16px;
