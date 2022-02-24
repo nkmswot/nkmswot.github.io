@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+    #mydiv{
+      background:#ccc;
+      padding:5px;
+      width: 600px; height:150px;
+      margin: 0px 0px auto;
+      font-size: 40px;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div id="mydiv" ></div>
+
+    <script type="text/babel">  
+      /*function Hello() {
+        return <h1>Hello World!</h1>;
+      }
+
+      ReactDOM.render(<Hello />, document.getElementById('mydiv')) */
+    </script>
+
+    <script type="text/babel">
+    function Welcome(){
+      return <div><h2>Welcome React.js!</h2></div>;
+    }
+      ReactDOM.render(<Welcome />, document.getElementById('mydiv'))
+    </script>
+
+  </body>
+</html>
