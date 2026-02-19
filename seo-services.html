@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karthik | SEO Expert & Digital Growth Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --green-deep: #0a2e1a;
+    --green-mid: #16a34a;
+    --green-bright: #22c55e;
+    --green-light: #4ade80;
+    --green-pale: #dcfce7;
+    --green-glass: rgba(34,197,94,0.08);
+    --white: #ffffff;
+    --off-white: #f5fdf7;
+    --text-dark: #0a2e1a;
+    --text-muted: #4b7a5e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: #f5fdf7;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 { font-family: 'Cabinet Grotesk', sans-serif; }
+
+  /* ---- HERO ---- */
+  .hero-bg {
+    background: linear-gradient(145deg, #052612 0%, #0a3d1f 45%, #0d4a26 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-mesh {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 20%, rgba(34,197,94,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 10% 80%, rgba(74,222,128,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 50% 50%, rgba(22,163,74,0.08) 0%, transparent 70%);
+    animation: mesh-shift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes mesh-shift {
+    from { opacity: 0.8; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.06); }
+  }
+
+  /* Grid lines */
+  .grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Animated ring */
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(74,222,128,0.15);
+    animation: ring-pulse 4s ease-in-out infinite;
+  }
+  @keyframes ring-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.08); opacity: 1; }
+  }
+
+  /* Floating dots */
+  .dot {
+    position: absolute; border-radius: 50%;
+    animation: dot-float 6s ease-in-out infinite;
+  }
+  @keyframes dot-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-14px) rotate(120deg); }
+    66% { transform: translateY(8px) rotate(240deg); }
+  }
+
+  /* Stagger entry animations */
+  @keyframes rise-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-right {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .a1 { animation: rise-up 0.8s 0.1s ease both; }
+  .a2 { animation: rise-up 0.8s 0.25s ease both; }
+  .a3 { animation: rise-up 0.8s 0.4s ease both; }
+  .a4 { animation: rise-up 0.8s 0.55s ease both; }
+  .a5 { animation: rise-up 0.8s 0.7s ease both; }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    padding: 18px 0;
+    transition: all 0.35s ease;
+  }
+  nav.scrolled {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 2px 24px rgba(10,46,26,0.08);
+    padding: 12px 0;
+  }
+  nav.scrolled .nl { color: #0a2e1a; }
+  nav.scrolled .nav-logo-text { color: #0a2e1a; }
+  nav.scrolled .ncta {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border-color: transparent;
+    color: white;
+  }
+
+  .nav-logo-text { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 900; font-size: 22px; color: white; letter-spacing: -0.03em; }
+  .nl { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+  .nl:hover { color: #4ade80; }
+  .ncta {
+    font-size: 14px; font-weight: 600; padding: 9px 22px; border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.35); color: white;
+    text-decoration: none; transition: all 0.3s; font-family: 'Cabinet Grotesk', sans-serif;
+  }
+  .ncta:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.6); }
+
+  /* ---- BUTTONS ---- */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white; font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700; font-size: 15px; padding: 15px 30px;
+    border-radius: 50px; text-decoration: none;
+    box-shadow: 0 6px 28px rgba(22,163,74,0.45);
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover::after { left: 100%; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(22,163,74,0.5); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.85); font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 600; font-size: 15px; padding: 14px 30px;
+    border-radius: 50px; text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3); transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: #4ade80; color: #4ade80; transform: translateY(-2px); }
+
+  .btn-green {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white; font-family: 'Cabinet Grotesk', sans-serif;
+    font-weight: 700; font-size: 15px; padding: 14px 28px;
+    border-radius: 50px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(22,163,74,0.35);
+    transition: all 0.3s;
+  }
+  .btn-green:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(22,163,74,0.45); }
+
+  .btn-dark {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #0a2e1a; color: white;
+    font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700;
+    font-size: 15px; padding: 14px 28px; border-radius: 50px;
+    text-decoration: none; transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(10,46,26,0.25);
+  }
+  .btn-dark:hover { transform: translateY(-3px); background: #0d3d22; box-shadow: 0 10px 32px rgba(10,46,26,0.35); }
+
+  /* ---- TAGS ---- */
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #dcfce7; color: #16a34a;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 6px 16px; border-radius: 50px;
+    border: 1px solid rgba(22,163,74,0.25); margin-bottom: 16px;
+  }
+
+  .chip {
+    display: inline-block; background: #f0fdf4; color: #16a34a;
+    font-size: 12px; font-weight: 500; padding: 4px 12px;
+    border-radius: 50px; border: 1px solid rgba(22,163,74,0.2);
+    margin: 2px;
+  }
+
+  /* ---- CARDS ---- */
+  .scard {
+    background: white; border: 1px solid rgba(22,163,74,0.12);
+    border-radius: 20px; padding: 28px;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative; overflow: hidden;
+  }
+  .scard::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #16a34a, #4ade80);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .scard:hover { transform: translateY(-7px); box-shadow: 0 24px 60px rgba(22,163,74,0.14); border-color: rgba(22,163,74,0.3); }
+  .scard:hover::before { transform: scaleX(1); }
+
+  .icon-box {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .scard:hover .icon-box {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+  }
+  .scard:hover .icon-box svg { stroke: white !important; }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.4,0,0.2,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- STAT ---- */
+  .stat-num {
+    font-family: 'Cabinet Grotesk', sans-serif; font-weight: 900;
+    font-size: 2.8rem; line-height: 1;
+    background: linear-gradient(135deg, #16a34a, #4ade80);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ---- PROCESS STEP ---- */
+  .process-step {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px; border-radius: 16px; background: white;
+    border: 1px solid rgba(22,163,74,0.1);
+    transition: all 0.3s ease;
+  }
+  .process-step:hover { box-shadow: 0 12px 40px rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.25); }
+  .step-num {
+    font-family: 'Cabinet Grotesk', sans-serif; font-weight: 900;
+    font-size: 2rem; color: rgba(22,163,74,0.2); line-height: 1;
+    flex-shrink: 0; width: 40px; text-align: right;
+    transition: color 0.3s;
+  }
+  .process-step:hover .step-num { color: rgba(22,163,74,0.5); }
+
+  /* ---- LIST ITEM ---- */
+  .list-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 12px;
+    background: #f0fdf4; border: 1px solid rgba(22,163,74,0.1);
+    transition: all 0.2s;
+  }
+  .list-item:hover { background: #dcfce7; border-color: rgba(22,163,74,0.25); }
+  .list-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #4ade80); flex-shrink: 0;
+  }
+
+  /* ---- CTA SECTION ---- */
+  .cta-bg {
+    background: linear-gradient(145deg, #052612 0%, #0a3d1f 60%, #0d4a26 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-bg::before {
+    content: ''; position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%);
+    top: -200px; right: 0;
+    animation: mesh-shift 6s ease-in-out infinite alternate;
+  }
+  .cta-bg::after {
+    content: ''; position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(74,222,128,0.1) 0%, transparent 70%);
+    bottom: -100px; left: 5%;
+    animation: mesh-shift 7s ease-in-out infinite alternate-reverse;
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(22,163,74,0.25), transparent);
+  }
+
+  /* ---- TESTIMONIAL ---- */
+  .tcard {
+    background: white; border: 1px solid rgba(22,163,74,0.12);
+    border-radius: 20px; padding: 28px;
+    transition: all 0.3s ease;
+  }
+  .tcard:hover { box-shadow: 0 16px 48px rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.25); transform: translateY(-4px); }
+
+  /* ---- AVAILABLE BADGE ---- */
+  .avail-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+    font-size: 13px; font-weight: 500; padding: 7px 18px;
+    border-radius: 50px; border: 1px solid rgba(255,255,255,0.18);
+    margin-bottom: 24px;
+  }
+  .avail-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px rgba(74,222,128,0.6);
+    animation: dot-blink 2s ease-in-out infinite;
+  }
+  @keyframes dot-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* TOOL PILL */
+  .tool-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.55);
+    font-size: 12px; padding: 5px 14px; border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="#" class="nav-logo-text">
+      Karthik<span style="color:#4ade80;">.</span>
+    </a>
+    <div class="desktop-nav" style="display:flex;align-items:center;gap:32px;">
+      <a href="#services" class="nl">Services</a>
+      <a href="#process" class="nl">Process</a>
+      <a href="#results" class="nl">Results</a>
+      <a href="#contact" class="nl">Contact</a>
+    </div>
+    <a href="#contact" class="ncta">Get Free Audit</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-bg">
+  <div class="hero-mesh"></div>
+  <div class="grid-lines"></div>
+
+  <!-- Rings -->
+  <div class="ring" style="width:500px;height:500px;top:-100px;right:-100px;animation-delay:0s;"></div>
+  <div class="ring" style="width:300px;height:300px;bottom:80px;left:-80px;animation-delay:1.5s;"></div>
+
+  <!-- Dots -->
+  <div class="dot" style="width:6px;height:6px;background:#4ade80;opacity:0.4;top:25%;left:12%;animation-delay:0s;"></div>
+  <div class="dot" style="width:10px;height:10px;background:#22c55e;opacity:0.25;top:70%;left:8%;animation-delay:2s;"></div>
+  <div class="dot" style="width:7px;height:7px;background:#4ade80;opacity:0.3;top:40%;right:20%;animation-delay:1s;"></div>
+  <div class="dot" style="width:5px;height:5px;background:#86efac;opacity:0.35;bottom:25%;right:12%;animation-delay:3s;"></div>
+
+  <div style="max-width:1120px;margin:0 auto;padding:120px 24px 80px;position:relative;z-index:10;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <!-- Left -->
+      <div>
+        <div class="avail-badge a1">
+          <div class="avail-dot"></div>
+          Accepting new clients
+        </div>
+
+        <h1 class="a2" style="font-size:clamp(2.8rem,5vw,4.2rem);font-weight:900;color:white;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px;">
+          Rank Higher.<br>
+          Grow <span style="background:linear-gradient(135deg,#4ade80,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Faster.</span><br>
+          Stay Ahead.
+        </h1>
+
+        <p class="a3" style="font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:440px;margin-bottom:32px;font-weight:300;">
+          Hi, I'm <strong style="color:rgba(255,255,255,0.9);font-weight:600;">Karthik</strong> — SEO strategist helping businesses dominate search results with data-driven, white-hat SEO that delivers lasting organic growth.
+        </p>
+
+        <div class="a4" style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px;">
+          <a href="#contact" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Get Free SEO Audit
+          </a>
+          <a href="#services" class="btn-ghost">
+            Explore Services
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="a5" style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="tool-pill">Google Analytics</span>
+          <span class="tool-pill">Ahrefs</span>
+          <span class="tool-pill">SEMrush</span>
+          <span class="tool-pill">Search Console</span>
+          <span class="tool-pill">Screaming Frog</span>
+        </div>
+      </div>
+
+      <!-- Right: Floating result card -->
+      <div class="a3" style="position:relative;display:flex;flex-direction:column;gap:16px;">
+        <!-- Card 1 -->
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,222,128,0.2);border-radius:16px;padding:22px 26px;backdrop-filter:blur(12px);">
+          <div style="font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Organic Traffic Growth</div>
+          <div style="display:flex;align-items:flex-end;gap:12px;">
+            <span style="font-family:'Cabinet Grotesk',sans-serif;font-size:2.6rem;font-weight:900;color:white;line-height:1;">+327%</span>
+            <span style="color:#4ade80;font-size:14px;font-weight:600;margin-bottom:6px;">↑ in 6 months</span>
+          </div>
+          <!-- Mini bar chart -->
+          <div style="display:flex;align-items:flex-end;gap:5px;margin-top:14px;height:40px;">
+            <div style="flex:1;background:rgba(74,222,128,0.2);border-radius:4px;height:25%;"></div>
+            <div style="flex:1;background:rgba(74,222,128,0.3);border-radius:4px;height:35%;"></div>
+            <div style="flex:1;background:rgba(74,222,128,0.4);border-radius:4px;height:50%;"></div>
+            <div style="flex:1;background:rgba(74,222,128,0.5);border-radius:4px;height:45%;"></div>
+            <div style="flex:1;background:rgba(74,222,128,0.6);border-radius:4px;height:65%;"></div>
+            <div style="flex:1;background:rgba(74,222,128,0.75);border-radius:4px;height:80%;"></div>
+            <div style="flex:1;background:#4ade80;border-radius:4px;height:100%;box-shadow:0 0 10px rgba(74,222,128,0.4);"></div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,222,128,0.2);border-radius:16px;padding:20px 26px;backdrop-filter:blur(12px);display:flex;gap:20px;align-items:center;">
+          <div style="width:48px;height:48px;background:rgba(74,222,128,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.07em;">Avg. Keyword Rankings</div>
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-size:1.6rem;font-weight:900;color:white;line-height:1.2;">Page 1</div>
+            <div style="font-size:12px;color:#4ade80;margin-top:2px;">For 80%+ target keywords</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(74,222,128,0.2);border-radius:16px;padding:20px 26px;backdrop-filter:blur(12px);display:flex;gap:16px;align-items:center;">
+          <div style="width:48px;height:48px;background:rgba(74,222,128,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.07em;">Client Satisfaction</div>
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-size:1.6rem;font-weight:900;color:white;line-height:1.2;">98%</div>
+            <div style="display:flex;gap:2px;margin-top:4px;">
+              <span style="color:#facc15;font-size:14px;">★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating glow -->
+        <div style="position:absolute;width:200px;height:200px;background:radial-gradient(circle,rgba(74,222,128,0.12) 0%,transparent 70%);top:-40px;right:-40px;pointer-events:none;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS BAR ===================== -->
+<section style="background:white;padding:40px 0;" class="reveal">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+      <div style="text-align:center;padding:20px;border-right:1px solid rgba(22,163,74,0.12);">
+        <div class="stat-num">50+</div>
+        <div style="font-size:13px;color:#4b7a5e;margin-top:4px;font-weight:500;">Websites Ranked</div>
+      </div>
+      <div style="text-align:center;padding:20px;border-right:1px solid rgba(22,163,74,0.12);">
+        <div class="stat-num">3x</div>
+        <div style="font-size:13px;color:#4b7a5e;margin-top:4px;font-weight:500;">Avg. Traffic Increase</div>
+      </div>
+      <div style="text-align:center;padding:20px;border-right:1px solid rgba(22,163,74,0.12);">
+        <div class="stat-num">4+</div>
+        <div style="font-size:13px;color:#4b7a5e;margin-top:4px;font-weight:500;">Years of Experience</div>
+      </div>
+      <div style="text-align:center;padding:20px;">
+        <div class="stat-num">30+</div>
+        <div style="font-size:13px;color:#4b7a5e;margin-top:4px;font-weight:500;">Happy Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" style="padding:80px 0;background:#f5fdf7;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="section-tag">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        SEO Services
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:#0a2e1a;letter-spacing:-0.02em;margin-bottom:12px;">Complete SEO Solutions</h2>
+      <p style="color:#4b7a5e;max-width:520px;line-height:1.7;font-weight:300;">From deep technical audits to content that converts — every service is built to move your rankings and grow your revenue.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+
+      <!-- Technical SEO -->
+      <div class="scard reveal" style="transition-delay:0.05s;">
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 style="font-size:1.15rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Technical SEO</h3>
+            <p style="font-size:0.88rem;color:#4b7a5e;line-height:1.7;margin-bottom:14px;">A bulletproof technical foundation that search engines love — fast, crawlable, and error-free.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+              <span class="chip">Site Audit</span><span class="chip">Core Web Vitals</span><span class="chip">Schema Markup</span><span class="chip">Crawl Fixes</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Crawl error resolution</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Page speed optimization</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">XML sitemap & robots.txt</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Structured data / JSON-LD</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- On-Page & Content -->
+      <div class="scard reveal" style="transition-delay:0.1s;">
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 style="font-size:1.15rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">On-Page & Content SEO</h3>
+            <p style="font-size:0.88rem;color:#4b7a5e;line-height:1.7;margin-bottom:14px;">Content that answers your audience's intent, optimized to rank and convert simultaneously.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+              <span class="chip">Keyword Research</span><span class="chip">Content Strategy</span><span class="chip">Meta Optimization</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Intent-based keyword mapping</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Title & meta tag optimization</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Content gap analysis</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Internal linking strategy</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link Building -->
+      <div class="scard reveal" style="transition-delay:0.15s;">
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 style="font-size:1.15rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Link Building & Off-Page</h3>
+            <p style="font-size:0.88rem;color:#4b7a5e;line-height:1.7;margin-bottom:14px;">Authority-building backlink campaigns that signal trust to Google and push you past competitors.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+              <span class="chip">White-Hat</span><span class="chip">Guest Posts</span><span class="chip">DR 50+</span><span class="chip">Niche Relevant</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">High-DA backlink outreach</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Guest post campaigns</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Toxic link disavow</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Brand mention monitoring</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Local SEO -->
+      <div class="scard reveal" style="transition-delay:0.2s;">
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h3 style="font-size:1.15rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Local SEO</h3>
+            <p style="font-size:0.88rem;color:#4b7a5e;line-height:1.7;margin-bottom:14px;">Dominate your local market — appear in the map pack, drive foot traffic and win neighbourhood searches.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+              <span class="chip">Google Business</span><span class="chip">Map Pack</span><span class="chip">Citations</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">GMB profile optimization</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">NAP citation building</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Local keyword targeting</span></div>
+              <div class="list-item"><div class="list-dot"></div><span style="font-size:12px;color:#374151;">Review management</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Inline CTA -->
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="#contact" class="btn-green">
+        Get Free SEO Audit
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#process" class="btn-dark">
+        See My Process
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process" style="padding:80px 0;background:white;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="section-tag">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        How It Works
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:#0a2e1a;letter-spacing:-0.02em;margin-bottom:12px;">My Proven SEO Process</h2>
+      <p style="color:#4b7a5e;max-width:500px;line-height:1.7;font-weight:300;">Transparent, repeatable, and results-oriented — here's exactly how I'll grow your organic presence.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+
+      <div class="process-step reveal" style="transition-delay:0.05s;">
+        <div class="step-num">01</div>
+        <div>
+          <h4 style="font-size:1.05rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Discovery & Audit</h4>
+          <p style="font-size:0.875rem;color:#4b7a5e;line-height:1.7;">Full technical audit, competitor analysis, keyword gap study — I understand where you stand and where the opportunity is.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal" style="transition-delay:0.1s;">
+        <div class="step-num">02</div>
+        <div>
+          <h4 style="font-size:1.05rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Strategy & Roadmap</h4>
+          <p style="font-size:0.875rem;color:#4b7a5e;line-height:1.7;">Custom 90-day SEO roadmap with prioritized actions, keyword targets, content calendar and authority-building plan.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal" style="transition-delay:0.15s;">
+        <div class="step-num">03</div>
+        <div>
+          <h4 style="font-size:1.05rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Execution & Optimization</h4>
+          <p style="font-size:0.875rem;color:#4b7a5e;line-height:1.7;">Hands-on implementation — fixing technicals, publishing optimized content, building high-quality backlinks month by month.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal" style="transition-delay:0.2s;">
+        <div class="step-num">04</div>
+        <div>
+          <h4 style="font-size:1.05rem;font-weight:800;color:#0a2e1a;margin-bottom:8px;">Track, Report & Scale</h4>
+          <p style="font-size:0.875rem;color:#4b7a5e;line-height:1.7;">Monthly performance reports with clear metrics — rankings, traffic, conversions. Continuous iteration to compound results.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===================== RESULTS / TESTIMONIALS ===================== -->
+<section id="results" style="padding:80px 0;background:#f5fdf7;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="section-tag">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Results & Reviews
+      </div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:#0a2e1a;letter-spacing:-0.02em;margin-bottom:12px;">Real Results, Real Businesses</h2>
+      <p style="color:#4b7a5e;max-width:500px;line-height:1.7;font-weight:300;">Don't take my word for it — here's what my clients have experienced working with me.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+
+      <div class="tcard reveal" style="transition-delay:0.05s;">
+        <div style="display:flex;gap:3px;margin-bottom:14px;">
+          <span style="color:#facc15;font-size:16px;">★★★★★</span>
+        </div>
+        <p style="font-size:0.9rem;color:#374151;line-height:1.75;margin-bottom:18px;font-style:italic;">"Karthik grew our organic traffic by 4x in just 5 months. Our main keywords went from page 4 to the top 3 results. Incredible work."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#dcfce7,#86efac);display:flex;align-items:center;justify-content:center;font-family:'Cabinet Grotesk',sans-serif;font-weight:800;color:#16a34a;font-size:16px;">R</div>
+          <div>
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:14px;color:#0a2e1a;">Ravi M.</div>
+            <div style="font-size:12px;color:#4b7a5e;">E-commerce Founder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard reveal" style="transition-delay:0.1s;">
+        <div style="display:flex;gap:3px;margin-bottom:14px;">
+          <span style="color:#facc15;font-size:16px;">★★★★★</span>
+        </div>
+        <p style="font-size:0.9rem;color:#374151;line-height:1.75;margin-bottom:18px;font-style:italic;">"Our local business now appears in the top 3 on Google Maps for all key services. Bookings have doubled since working with Karthik."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#dcfce7,#86efac);display:flex;align-items:center;justify-content:center;font-family:'Cabinet Grotesk',sans-serif;font-weight:800;color:#16a34a;font-size:16px;">S</div>
+          <div>
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:14px;color:#0a2e1a;">Sunitha K.</div>
+            <div style="font-size:12px;color:#4b7a5e;">Clinic Owner, Chennai</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard reveal" style="transition-delay:0.15s;">
+        <div style="display:flex;gap:3px;margin-bottom:14px;">
+          <span style="color:#facc15;font-size:16px;">★★★★★</span>
+        </div>
+        <p style="font-size:0.9rem;color:#374151;line-height:1.75;margin-bottom:18px;font-style:italic;">"The monthly reports are clear and the results speak for themselves. We rank on page 1 for 12 competitive keywords now. Highly recommend!"</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#dcfce7,#86efac);display:flex;align-items:center;justify-content:center;font-family:'Cabinet Grotesk',sans-serif;font-weight:800;color:#16a34a;font-size:16px;">A</div>
+          <div>
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:14px;color:#0a2e1a;">Arjun T.</div>
+            <div style="font-size:12px;color:#4b7a5e;">SaaS Product Lead</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===================== TOOLS ===================== -->
+<section style="padding:56px 0;background:white;" class="reveal">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;text-align:center;">
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#4b7a5e;font-weight:600;margin-bottom:24px;">Tools I Use</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Google Search Console
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Ahrefs
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        SEMrush
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Google Analytics 4
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Screaming Frog
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid rgba(22,163,74,0.15);border-radius:50px;background:#f5fdf7;color:#374151;font-size:14px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(22,163,74,0.4)';this.style.background='#dcfce7';" onmouseout="this.style.borderColor='rgba(22,163,74,0.15)';this.style.background='#f5fdf7';">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Moz Pro
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===================== CTA ===================== -->
+<section id="contact" class="cta-bg" style="padding:96px 0;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:10;">
+    <div class="reveal" style="max-width:640px;margin:0 auto;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.12);color:#86efac;font-size:13px;font-weight:600;padding:7px 18px;border-radius:50px;border:1px solid rgba(74,222,128,0.25);margin-bottom:24px;">
+        🌿 Free Audit — No Commitment
+      </div>
+      <h2 style="font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:900;color:white;line-height:1.1;letter-spacing:-0.03em;margin-bottom:18px;">
+        Ready to Grow Your<br>
+        <span style="background:linear-gradient(135deg,#4ade80,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Organic Traffic?</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.55);font-size:1.05rem;line-height:1.75;margin-bottom:36px;font-weight:300;">
+        Get a free, no-obligation SEO audit of your website. I'll identify your biggest opportunities and show you exactly what needs to be done to rank higher.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:32px;">
+        <a href="mailto:karthikswot@gmail.com" class="btn-primary" style="font-size:16px;padding:16px 34px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Request Free SEO Audit
+        </a>
+        <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" class="btn-ghost" style="font-size:16px;padding:15px 34px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+
+      <!-- Trust indicators -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
+        <div style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.4);font-size:13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Response within 24h
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.4);font-size:13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          No contracts required
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.4);font-size:13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          100% white-hat SEO
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#052612;border-top:1px solid rgba(255,255,255,0.05);padding:28px 0;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+    <div style="font-family:'Cabinet Grotesk',sans-serif;font-weight:900;font-size:18px;color:white;">
+      Karthik<span style="color:#4ade80;">.</span>
+      <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.3);font-family:'Instrument Sans',sans-serif;margin-left:10px;">SEO Strategist & Digital Growth Expert</span>
+    </div>
+    <div style="color:rgba(255,255,255,0.25);font-size:12px;">© 2026 Karthik. All rights reserved.</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <a href="https://www.linkedin.com/in/softwarekarthik/" style="color:rgba(255,255,255,0.3);transition:color 0.2s;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="mailto:karthikswot@email.com" style="color:rgba(255,255,255,0.3);transition:color 0.2s;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), (parseFloat(e.target.style.transitionDelay) || 0) * 800);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
