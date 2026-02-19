@@ -2,250 +2,769 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Karthik | Full Stack Engineer & Digital Solutions Expert | PHP Laravel WordPress WooCommerce React Typescript</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karthik | Full Stack Engineer & Digital Solutions Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background:#0f172a;
-    color:#fff;
-}
-.container{
-    max-width:1150px;
-    margin:auto;
-    padding:40px 20px;
-}
-.hero{
-    text-align:center;
-    padding:90px 20px;
-    background:linear-gradient(135deg,#1e293b,#0f172a);
-}
-.hero h1{
-    font-size:42px;
-    margin-bottom:20px;
-}
-.hero p{
-    color:#cbd5e1;
-    font-size:18px;
-    max-width:750px;
-    margin:auto;
-}
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 28px;
-    background:#3b82f6;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-section{
-    margin-top:70px;
-}
-.section-title{
-    text-align:center;
-    font-size:28px;
-    margin-bottom:35px;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:12px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:translateY(-6px);
-}
-.tech{
-    display:inline-block;
-    background:#1e293b;
-    padding:8px 14px;
-    margin:5px;
-    border-radius:6px;
-    font-size:14px;
-    color:#93c5fd;
-}
-.pricing{
-    border:2px solid #334155;
-    padding:30px;
-    border-radius:12px;
-    text-align:center;
-}
-.highlight{
-    border:2px solid #3b82f6;
-    background:#1e3a8a;
-}
-.price{
-    font-size:28px;
-    margin:15px 0;
-}
-.footer{
-    text-align:center;
-    padding:50px 0;
-    color:#64748b;
-}
-ul{
-    padding-left:18px;
-}
+  :root {
+    --blue-deep: #0a2540;
+    --blue-mid: #1a56db;
+    --blue-light: #3b82f6;
+    --blue-glow: #60a5fa;
+    --white: #ffffff;
+    --off-white: #f0f6ff;
+    --text-muted: #6b8cae;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f8fbff;
+    color: var(--blue-deep);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+  /* Animated gradient bg */
+  .hero-bg {
+    background: linear-gradient(135deg, #0a2540 0%, #1a3a6e 50%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 70%);
+    bottom: -50px; left: -50px;
+    animation: pulse-glow 4s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  @keyframes float-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-title { animation: float-up 0.8s ease forwards; }
+  .hero-sub { animation: float-up 0.8s 0.2s ease forwards; opacity: 0; }
+  .hero-cta { animation: float-up 0.8s 0.4s ease forwards; opacity: 0; }
+  .hero-badge { animation: slide-in-left 0.8s 0.1s ease forwards; opacity: 0; }
+
+  /* Service cards */
+  .service-card {
+    background: white;
+    border: 1px solid rgba(59,130,246,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1a56db, #60a5fa);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(26,86,219,0.15);
+    border-color: rgba(59,130,246,0.3);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  /* Icon badge */
+  .icon-badge {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+  .service-card:hover .icon-badge {
+    background: linear-gradient(135deg, #1a56db, #3b82f6);
+  }
+  .service-card:hover .icon-badge svg { stroke: white; }
+
+  /* Section headers */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eff6ff;
+    color: #1a56db;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(26,86,219,0.2);
+    margin-bottom: 16px;
+  }
+
+  /* CTA button primary */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1a56db, #3b82f6);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(26,86,219,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(26,86,219,0.5);
+  }
+
+  /* CTA button secondary */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue-deep);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(10,37,64,0.3);
+  }
+  .btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(10,37,64,0.4);
+    background: #0e3060;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stats */
+  .stat-card {
+    text-align: center;
+    padding: 24px;
+  }
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1a56db, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 0;
+    transition: all 0.3s ease;
+  }
+  nav.scrolled {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(10,37,64,0.1);
+    padding: 12px 0;
+  }
+  nav.scrolled .nav-logo { color: var(--blue-deep); }
+  nav.scrolled .nav-link { color: var(--blue-deep); }
+  nav.scrolled .nav-cta {
+    background: linear-gradient(135deg, #1a56db, #3b82f6);
+  }
+  .nav-logo { color: white; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; }
+  .nav-link { color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: #60a5fa; }
+  .nav-cta {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: white; color: #1a56db; }
+
+  /* Section bg alternating */
+  .section-alt { background: white; }
+
+  /* Grid lines decoration */
+  .grid-decoration {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Divider */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(26,86,219,0.3), transparent);
+    margin: 0;
+  }
+
+  /* Chip / tag */
+  .chip {
+    display: inline-block;
+    background: #eff6ff;
+    color: #1a56db;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(26,86,219,0.15);
+    margin: 3px 2px;
+  }
+
+  /* CTA section */
+  .cta-section {
+    background: linear-gradient(135deg, #0a2540 0%, #1a3a6e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+    top: -200px; right: 10%;
+    animation: pulse-glow 5s ease-in-out infinite;
+  }
+
+  /* Floating dots */
+  .dot { position: absolute; border-radius: 50%; animation: float-dot 6s ease-in-out infinite; }
+  @keyframes float-dot {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Hamburger for mobile */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="hero">
-<h1>Engineering, WordPress & Digital Growth Solutions</h1>
-<p>
-Full Stack Engineer helping startups, authors and businesses build scalable SaaS products,
-custom WordPress solutions and growth-driven digital systems.
-</p>
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+    <a href="#" class="nav-logo">K<span style="color:#60a5fa">.</span></a>
+    <div class="nav-links flex items-center gap-8">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#expertise" class="nav-link">Expertise</a>
+      <a href="#seo" class="nav-link">Marketing</a>
+      <a href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20would%20like%20to%20discuss%20a%20project." class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</nav>
 
-<a class="btn" target="_blank"
-href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20would%20like%20to%20discuss%20a%20project.">
-Start Project Discussion
-</a>
-</div>
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center pt-20 pb-16">
+  <div class="grid-decoration"></div>
+  <!-- Floating dots -->
+  <div class="dot bg-blue-400 opacity-20" style="width:8px;height:8px;top:20%;left:10%;animation-delay:0s"></div>
+  <div class="dot bg-blue-300 opacity-15" style="width:12px;height:12px;top:60%;left:5%;animation-delay:2s"></div>
+  <div class="dot bg-blue-500 opacity-20" style="width:6px;height:6px;top:80%;left:80%;animation-delay:1s"></div>
+  <div class="dot bg-blue-200 opacity-10" style="width:16px;height:16px;top:30%;right:15%;animation-delay:3s"></div>
 
-<div class="container">
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="max-w-3xl">
+      <div class="hero-badge mb-6">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.9);font-size:13px;font-weight:500;padding:6px 16px;border-radius:50px;border:1px solid rgba(255,255,255,0.2);">
+          <span style="width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;animation:pulse-glow 2s ease-in-out infinite;"></span>
+          Available for new projects
+        </span>
+      </div>
+      <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6" style="letter-spacing:-0.02em;">
+        Engineering &<br>
+        <span style="background:linear-gradient(135deg,#60a5fa,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Digital Growth</span><br>
+        Solutions
+      </h1>
+      <p class="hero-sub text-lg text-blue-200 max-w-xl leading-relaxed mb-10" style="font-weight:300;">
+        Full Stack Engineer helping startups, authors and businesses build scalable SaaS products, custom WordPress solutions and growth-driven digital systems.
+      </p>
+      <div class="hero-cta flex flex-wrap gap-4">
+        <a href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20would%20like%20to%20discuss%20a%20project." class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Start Project Discussion
+        </a>
+        <a href="#services" class="btn-secondary">
+          Explore Services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
 
-<section>
-<h2 class="section-title">Engineering & SaaS Development</h2>
+      <!-- Tech chips -->
+      <div class="mt-12 flex flex-wrap gap-2">
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">PHP Laravel</span>
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">React & TypeScript</span>
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">WordPress</span>
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">WooCommerce</span>
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">AWS & Docker</span>
+        <span class="chip" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1);">AI Integrations</span>
+      </div>
+    </div>
+  </div>
 
-<div class="grid">
-<div class="card">
-<h3>Custom PHP & Laravel Development</h3>
-<p>Backend systems, dashboards, APIs, scalable applications and refactoring.</p>
-</div>
-
-<div class="card">
-<h3>SaaS Product Architecture</h3>
-<p>Multi-tenant systems, subscription billing, cloud deployment and CI/CD pipelines.</p>
-</div>
-
-<div class="card">
-<h3>AWS, Docker & DevOps</h3>
-<p>Cloud setup, containerization, performance optimization and automation.</p>
-</div>
-
-<div class="card">
-<h3>AI-Powered Applications</h3>
-<p>AI integrations, workflow automation, smart tools and productivity apps.</p>
-</div>
-</div>
+  <!-- Scroll indicator -->
+  <div style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:float-up 1s 1s ease forwards;opacity:0;">
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Scroll</span>
+    <div style="width:1px;height:40px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse-glow 2s ease-in-out infinite;"></div>
+  </div>
 </section>
 
-<section>
-<h2 class="section-title">WordPress & WooCommerce Services</h2>
-
-<div class="grid">
-<div class="card">
-<h3>Custom WordPress Development</h3>
-<p>Theme customization, performance optimization and security hardening.</p>
-</div>
-
-<div class="card">
-<h3>WooCommerce Development</h3>
-<p>Custom checkout flows, payment integrations and store optimization.</p>
-</div>
-
-<div class="card">
-<h3>Plugin Development</h3>
-<p>Custom plugin creation, API integrations and feature extensions.</p>
-</div>
-
-<div class="card">
-<h3>Plugin Customization & Fixes</h3>
-<p>Bug fixing, compatibility updates and advanced modifications.</p>
-</div>
-</div>
+<!-- STATS BAR -->
+<section class="section-alt py-12 reveal">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat-card border-r border-blue-100">
+        <div class="stat-number">5+</div>
+        <div class="text-sm text-gray-500 mt-1 font-medium">Years Experience</div>
+      </div>
+      <div class="stat-card border-r border-blue-100">
+        <div class="stat-number">50+</div>
+        <div class="text-sm text-gray-500 mt-1 font-medium">Projects Delivered</div>
+      </div>
+      <div class="stat-card border-r border-blue-100">
+        <div class="stat-number">20+</div>
+        <div class="text-sm text-gray-500 mt-1 font-medium">Happy Clients</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="text-sm text-gray-500 mt-1 font-medium">Core Specializations</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2 class="section-title">Creative & Publishing Services</h2>
+<div class="gradient-divider"></div>
 
-<div class="grid">
-<div class="card">
-<h3>Ebook Cover Design</h3>
-<p>Professional covers for Amazon Kindle, print and digital publishing.</p>
-</div>
+<!-- ENGINEERING SERVICES -->
+<section id="services" class="py-20 relative" style="background:#f8fbff;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal mb-14">
+      <div class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Engineering & SaaS
+      </div>
+      <h2 class="text-4xl font-extrabold text-blue-950 mt-2 mb-3">Full Stack Engineering</h2>
+      <p class="text-gray-500 max-w-xl">Robust, scalable backend systems and SaaS architectures built for growth — from MVP to enterprise.</p>
+    </div>
 
-<div class="card">
-<h3>Ebook Formatting</h3>
-<p>Kindle, EPUB, PDF formatting with professional layout structure.</p>
-</div>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Card 1 -->
+      <div class="service-card reveal" style="transition-delay:0.05s">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">Custom PHP & Laravel</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Backend systems, dashboards, APIs, scalable applications and refactoring.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip">PHP 8</span><span class="chip">Laravel</span><span class="chip">REST API</span>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">SaaS Architecture</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Multi-tenant systems, subscription billing, cloud deployment and CI/CD pipelines.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip">Multi-tenant</span><span class="chip">Stripe</span><span class="chip">CI/CD</span>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card reveal" style="transition-delay:0.15s">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">AWS, Docker & DevOps</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Cloud setup, containerization, performance optimization and automation.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip">AWS EC2</span><span class="chip">Docker</span><span class="chip">Linux</span>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="19" cy="5" r="3"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">AI-Powered Apps</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">AI integrations, workflow automation, smart tools and productivity apps.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip">OpenAI</span><span class="chip">Automation</span><span class="chip">LLMs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline CTA -->
+    <div class="reveal mt-10 flex justify-start">
+      <a href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20would%20like%20to%20discuss%20a%20project." class="btn-dark">
+        Discuss Your Engineering Needs
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2 class="section-title">SEO & Digital Marketing</h2>
+<div class="gradient-divider"></div>
 
-<div class="grid">
-<div class="card">
-<h3>SEO Services</h3>
-<ul>
-<li>Technical SEO audits</li>
-<li>On-page optimization</li>
-<li>Performance optimization</li>
-<li>SEO content strategy</li>
-</ul>
-</div>
+<!-- WORDPRESS SERVICES -->
+<section id="expertise" class="py-20 section-alt">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal mb-14">
+      <div class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        WordPress & WooCommerce
+      </div>
+      <h2 class="text-4xl font-extrabold text-blue-950 mt-2 mb-3">WordPress Excellence</h2>
+      <p class="text-gray-500 max-w-xl">High-performance WordPress sites with custom plugins, optimized checkout flows and bulletproof security.</p>
+    </div>
 
-<div class="card">
-<h3>Social Media Marketing</h3>
-<ul>
-<li>LinkedIn content strategy</li>
-<li>Brand positioning</li>
-<li>Growth consulting</li>
-<li>Performance tracking</li>
-</ul>
-</div>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Card 1 -->
+      <div class="service-card reveal" style="transition-delay:0.05s;display:flex;gap:20px;align-items:flex-start;">
+        <div class="icon-badge" style="flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-950 mb-2">Custom WordPress Development</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Theme customization, performance optimization and security hardening — built to your brand standards.</p>
+          <div class="mt-3 flex flex-wrap gap-1">
+            <span class="chip">ACF Pro</span><span class="chip">Gutenberg</span><span class="chip">Page Speed</span><span class="chip">Security</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card reveal" style="transition-delay:0.1s;display:flex;gap:20px;align-items:flex-start;">
+        <div class="icon-badge" style="flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-950 mb-2">WooCommerce Development</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Custom checkout flows, payment integrations and store optimization to maximize conversions.</p>
+          <div class="mt-3 flex flex-wrap gap-1">
+            <span class="chip">Stripe</span><span class="chip">PayPal</span><span class="chip">Custom Checkout</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card reveal" style="transition-delay:0.15s;display:flex;gap:20px;align-items:flex-start;">
+        <div class="icon-badge" style="flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-950 mb-2">Plugin Development</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Custom plugin creation, API integrations and feature extensions tailored to your workflow.</p>
+          <div class="mt-3 flex flex-wrap gap-1">
+            <span class="chip">Custom Plugins</span><span class="chip">API Hooks</span><span class="chip">REST</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card reveal" style="transition-delay:0.2s;display:flex;gap:20px;align-items:flex-start;">
+        <div class="icon-badge" style="flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-blue-950 mb-2">Plugin Fixes & Customization</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Bug fixing, compatibility updates and advanced modifications for existing plugins.</p>
+          <div class="mt-3 flex flex-wrap gap-1">
+            <span class="chip">Bug Fixes</span><span class="chip">Compatibility</span><span class="chip">Modifications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-<!-- <h2 class="section-title">Project Investment (USD)</h2> -->
+<div class="gradient-divider"></div>
 
-<!-- <div class="grid">
+<!-- CREATIVE & PUBLISHING -->
+<section class="py-20" style="background:#f8fbff;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal mb-14">
+      <div class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Creative & Publishing
+      </div>
+      <h2 class="text-4xl font-extrabold text-blue-950 mt-2 mb-3">Publishing Services</h2>
+      <p class="text-gray-500 max-w-xl">Professional ebook design and formatting services that make your content shine across every platform.</p>
+    </div>
 
-<div class="pricing">
-<h3>Quick Technical Fix</h3>
-<div class="price">$300 – $800</div>
-<p>Bug fixes, plugin customization, performance tuning.</p>
-</div>
-
-<div class="pricing highlight">
-<h3>Standard Development Project</h3>
-<div class="price">$1,500 – $4,000</div>
-<p>WordPress systems, SaaS modules, dashboards and integrations.</p>
-</div>
-
-<div class="pricing">
-<h3>Advanced SaaS / Full Product</h3>
-<div class="price">$5,000 – $15,000+</div>
-<p>Complete SaaS architecture, AI integrations and cloud deployment.</p>
-</div>
-
-</div> -->
-<a class="btn" style="background-color:#5D3FD3;" href="https://www.linkedin.com/in/softwarekarthik/" target="_blank">Connect Me on Linkedin</a> &nbsp; &nbsp; 
-<a class="btn" target="_blank"
-href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20am%20interested%20in%20your%20services.">
-Request Proposal
-</a>
-
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="service-card reveal" style="transition-delay:0.05s;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:rgba(59,130,246,0.2);">
+        <div class="icon-badge" style="background:white;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">Ebook Cover Design</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Professional covers for Amazon Kindle, print and digital publishing that grab attention and drive sales.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip" style="background:white;">Kindle KDP</span><span class="chip" style="background:white;">Print-Ready</span><span class="chip" style="background:white;">Digital</span>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:rgba(59,130,246,0.2);">
+        <div class="icon-badge" style="background:white;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-blue-950 mb-2">Ebook Formatting</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Kindle, EPUB, PDF formatting with professional layout structure optimized for reader experience.</p>
+        <div class="mt-4 flex flex-wrap gap-1">
+          <span class="chip" style="background:white;">Kindle</span><span class="chip" style="background:white;">EPUB</span><span class="chip" style="background:white;">PDF</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-</div>
+<div class="gradient-divider"></div>
 
-<div class="footer">
-© 2026 <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank">Karthik</a> | Full Stack Engineer & Digital Solutions Expert
-</div>
+<!-- SEO & MARKETING -->
+<section id="seo" class="py-20 section-alt">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal mb-14">
+      <div class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        SEO & Digital Marketing
+      </div>
+      <h2 class="text-4xl font-extrabold text-blue-950 mt-2 mb-3">Growth & Visibility</h2>
+      <p class="text-gray-500 max-w-xl">Data-driven SEO and social media strategies that bring qualified leads and sustainable organic growth.</p>
+    </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- SEO -->
+      <div class="service-card reveal" style="transition-delay:0.05s;">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-blue-950">SEO Services</h3>
+            <p class="text-sm text-gray-500 mt-1">Rank higher, grow faster with proven on-page and technical SEO.</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">Technical SEO audits & fixes</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">On-page optimization</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">Core Web Vitals & performance</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">SEO content strategy</span>
+          </div>
+        </div>
+      </div>
+      <!-- Social -->
+      <div class="service-card reveal" style="transition-delay:0.1s;">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-blue-950">Social Media Marketing</h3>
+            <p class="text-sm text-gray-500 mt-1">Build authority and drive leads through strategic LinkedIn presence.</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">LinkedIn content strategy</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">Brand positioning & authority</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">Growth consulting</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl" style="background:#f8fbff;">
+            <div style="width:6px;height:6px;background:#1a56db;border-radius:50%;flex-shrink:0;"></div>
+            <span class="text-sm text-gray-600">Performance tracking & reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section py-24">
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;padding:6px 16px;border-radius:50px;border:1px solid rgba(255,255,255,0.2);margin-bottom:24px;">
+        🚀 Ready to Build Something?
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+        Let's Turn Your Idea Into a <span style="background:linear-gradient(135deg,#60a5fa,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Reality</span>
+      </h2>
+      <p class="text-blue-200 text-lg mb-10 leading-relaxed" style="font-weight:300;">
+        Whether you need a scalable SaaS product, a high-performance WordPress site, or a complete digital marketing strategy — let's discuss your vision.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/+919944045025?text=Hi%20Karthik,%20I%20am%20interested%20in%20your%20services." class="btn-primary" style="font-size:16px;padding:16px 32px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Request Proposal on WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" class="btn-secondary" style="font-size:16px;padding:15px 32px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0a2540;border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="nav-logo" style="color:white;">K<span style="color:#60a5fa">.</span> <span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.4);font-family:'DM Sans',sans-serif;">Karthik — Full Stack Engineer</span></div>
+    <div style="color:rgba(255,255,255,0.3);font-size:13px;">© 2026 Karthik. All rights reserved.</div>
+    <div class="flex items-center gap-5">
+      <a href="https://www.linkedin.com/in/softwarekarthik/" style="color:rgba(255,255,255,0.4);transition:color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://wa.me/+919944045025" style="color:rgba(255,255,255,0.4);transition:color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Staggered reveal for cards
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
+  });
+</script>
 </body>
 </html>
