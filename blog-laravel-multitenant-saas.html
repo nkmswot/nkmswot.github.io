@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale | Karthik Mani</title>
+<meta name="description" content="Learn how to build scalable multi-tenant SaaS applications with Laravel and PHP. Covers database-per-tenant vs shared schema, middleware, subdomain routing, and real production patterns from 20 years of experience."/>
+<meta name="keywords" content="Laravel multi-tenant SaaS, PHP SaaS architecture, Laravel tenant middleware, multi-tenancy Laravel, SaaS apps PHP, Laravel subdomain routing, full stack developer SaaS, Karthik Mani Laravel"/>
+<meta name="author" content="Karthik Mani"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://nkmswot.github.io/blog-laravel-multitenant-saas.html"/>
+<meta property="og:title" content="Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale"/>
+<meta property="og:description" content="Real-world Laravel multi-tenancy patterns — database-per-tenant vs shared schema, middleware, subdomain routing and more from 20 years of shipping SaaS."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://nkmswot.github.io/blog-laravel-multitenant-saas.html"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&auto=format&fit=crop&q=80"/>
+<meta property="article:author" content="Karthik Mani"/>
+<meta property="article:published_time" content="2025-04-10"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Building Multi-Tenant SaaS Apps with Laravel"/>
+<meta name="twitter:description" content="Real-world Laravel multi-tenancy patterns from 20 years of SaaS development."/>
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&auto=format&fit=crop&q=80"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale","description":"Learn how to build scalable multi-tenant SaaS applications with Laravel and PHP.","author":{"@type":"Person","name":"Karthik Mani","url":"https://nkmswot.github.io/"},"datePublished":"2025-04-10","publisher":{"@type":"Person","name":"Karthik Mani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nkmswot.github.io/blog-laravel-multitenant-saas.html"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--lime:#C8FF00;--void:#090909;--slate:#141414;--chalk:#F0EDE6;--muted:#777;--border:rgba(240,237,230,.08);--prose:#d4d0c8;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--void);color:var(--chalk);overflow-x:hidden;line-height:1.7;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--lime);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(9,9,9,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em;color:var(--chalk);text-decoration:none;}
+.nav-logo em{color:var(--lime);font-style:normal;}
+.nav-back{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.nav-back:hover{color:var(--lime);}
+/* HERO */
+.post-hero{padding:140px 0 80px;max-width:900px;margin:0 auto;padding-left:48px;padding-right:48px;}
+.post-cat{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.post-cat::before{content:'';display:block;width:32px;height:1px;background:var(--lime);}
+.post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6vw,82px);line-height:.9;letter-spacing:.02em;margin-bottom:28px;}
+.post-meta{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:48px;}
+.meta-item{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.meta-item strong{color:var(--chalk);display:block;margin-top:2px;font-size:.7rem;}
+/* SHARE */
+.share-bar{display:flex;align-items:center;gap:12px;}
+.share-lbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s,background .2s;border-radius:2px;}
+.share-btn.tw{color:#1da1f2;border-color:rgba(29,161,242,.2);}
+.share-btn.tw:hover{background:rgba(29,161,242,.08);border-color:#1da1f2;}
+.share-btn.li{color:#0077b5;border-color:rgba(0,119,181,.2);}
+.share-btn.li:hover{background:rgba(0,119,181,.08);border-color:#0077b5;}
+.share-btn.cp{color:var(--lime);border-color:rgba(200,255,0,.2);}
+.share-btn.cp:hover{background:rgba(200,255,0,.08);border-color:var(--lime);}
+/* HERO IMG */
+.post-cover{width:100%;max-width:900px;margin:0 auto 64px;padding:0 48px;}
+.post-cover img{width:100%;height:480px;object-fit:cover;filter:grayscale(20%) contrast(1.05);display:block;}
+.post-cover-cap{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;margin-top:10px;text-align:center;}
+/* CONTENT */
+.post-body{max-width:760px;margin:0 auto;padding:0 48px 120px;}
+.post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);letter-spacing:.03em;line-height:.95;color:var(--chalk);margin-top:72px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.post-body h3{font-family:'Instrument Serif',serif;font-size:1.45rem;font-style:italic;color:var(--chalk);margin-top:40px;margin-bottom:14px;}
+.post-body p{font-size:1.02rem;line-height:1.85;color:var(--prose);margin-bottom:22px;}
+.post-body p strong{color:var(--chalk);}
+.post-body ul,.post-body ol{margin:0 0 24px 0;padding-left:0;list-style:none;}
+.post-body ul li,.post-body ol li{position:relative;padding-left:24px;font-size:.98rem;line-height:1.8;color:var(--prose);margin-bottom:10px;}
+.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--lime);font-family:'IBM Plex Mono',monospace;}
+.post-body ol{counter-reset:ol;}
+.post-body ol li{counter-increment:ol;}
+.post-body ol li::before{content:counter(ol,decimal-leading-zero);position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--lime);top:3px;}
+.post-body pre{background:var(--slate);border:1px solid var(--border);padding:28px;overflow-x:auto;margin:32px 0;position:relative;}
+.post-body pre code{font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.7;color:#c8ffa0;}
+.post-body code:not(pre code){font-family:'IBM Plex Mono',monospace;font-size:.82rem;background:rgba(200,255,0,.07);color:var(--lime);padding:2px 7px;border-radius:2px;}
+.post-body blockquote{border-left:2px solid var(--lime);margin:36px 0;padding:20px 28px;background:rgba(200,255,0,.04);}
+.post-body blockquote p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--chalk);margin:0;}
+.callout{background:var(--slate);border:1px solid var(--border);border-left:3px solid var(--lime);padding:24px 28px;margin:32px 0;}
+.callout-lbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+.callout p{font-size:.9rem;color:var(--prose);margin:0;line-height:1.7;}
+/* TOC */
+.toc{background:var(--slate);border:1px solid var(--border);padding:28px 32px;margin-bottom:48px;}
+.toc-title{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;}
+.toc ol{padding-left:0;list-style:none;counter-reset:toc;}
+.toc ol li{counter-increment:toc;padding-left:28px;position:relative;margin-bottom:8px;}
+.toc ol li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--lime);top:3px;}
+.toc a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.toc a:hover{color:var(--lime);}
+/* AUTHOR */
+.author-box{border:1px solid var(--border);padding:32px;margin-top:72px;display:flex;gap:24px;align-items:flex-start;}
+.author-img{width:72px;height:72px;flex-shrink:0;filter:grayscale(20%);}
+.author-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.author-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;line-height:1;}
+.author-title{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin:5px 0 10px;}
+.author-bio{font-size:.85rem;color:var(--muted);line-height:1.7;}
+/* RELATED */
+.related{max-width:760px;margin:0 auto;padding:0 48px 80px;}
+.related-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:24px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.rel-card{border:1px solid var(--border);background:var(--slate);padding:24px;text-decoration:none;display:block;transition:border-color .25s;}
+.rel-card:hover{border-color:rgba(200,255,0,.3);}
+.rel-cat{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+.rel-ttl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.03em;color:var(--chalk);line-height:1.05;}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.08em;text-decoration:none;color:var(--chalk);}
+.fl em{color:var(--lime);font-style:normal;}
+.fc{font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--muted);letter-spacing:.08em;}
+/* Progress bar */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--lime);z-index:200;width:0;transition:width .1s linear;}
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  .post-hero,.post-cover,.post-body,.related{padding-left:20px;padding-right:20px;}
+  .post-cover img{height:280px;}
+  .post-title{font-size:clamp(38px,10vw,60px);}
+  .post-meta{gap:16px;}
+  .related-grid{grid-template-columns:1fr;}
+  .author-box{flex-direction:column;}
+  footer{padding:20px;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><em>K</em>arthik<em>.</em></a>
+  <a href="index.html#blog" class="nav-back">← Back to Blog</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-cat">Laravel · SaaS Architecture</div>
+  <h1 class="post-title">Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale</h1>
+  <div class="post-meta">
+    <div class="meta-item">Author<strong>Karthik Mani</strong></div>
+    <div class="meta-item">Published<strong>April 10, 2025</strong></div>
+    <div class="meta-item">Read Time<strong>12 min read</strong></div>
+    <div class="meta-item">Category<strong>Laravel · PHP · SaaS</strong></div>
+    <div class="share-bar">
+      <span class="share-lbl">Share:</span>
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Building+Multi-Tenant+SaaS+Apps+with+Laravel&url=https://nkmswot.github.io/blog-laravel-multitenant-saas.html" target="_blank" rel="noopener noreferrer">𝕏 Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://nkmswot.github.io/blog-laravel-multitenant-saas.html" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+      <button class="share-btn cp" onclick="copyLink()">⧉ Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<div class="post-cover">
+  <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&auto=format&fit=crop&q=80" alt="Laravel SaaS multi-tenant PHP architecture code on screen"/>
+  <div class="post-cover-cap">Photo: Server architecture — the backbone of every scalable SaaS application</div>
+</div>
+
+<div class="post-body">
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#what-is-multitenancy">What Is Multi-Tenancy and Why Does It Matter?</a></li>
+      <li><a href="#three-models">The Three Multi-Tenancy Models in Laravel</a></li>
+      <li><a href="#database-per-tenant">Database-Per-Tenant: Maximum Isolation</a></li>
+      <li><a href="#shared-schema">Shared Schema: Efficient and Scalable</a></li>
+      <li><a href="#middleware">Building the Tenant Middleware</a></li>
+      <li><a href="#subdomain">Subdomain Routing in Laravel</a></li>
+      <li><a href="#pitfalls">Common Pitfalls and How to Avoid Them</a></li>
+      <li><a href="#choosing">Which Model Should You Choose?</a></li>
+    </ol>
+  </div>
+
+  <p>I've been building <strong>SaaS applications with PHP and Laravel</strong> for well over a decade. In that time, I've shipped multi-tenant products ranging from small team tools with a few hundred users to enterprise platforms serving tens of thousands of active tenants simultaneously. And if there's one architectural decision that determines more about your product's future than almost anything else, it's how you implement multi-tenancy from day one.</p>
+
+  <p>Get it wrong and you'll spend the next two years refactoring. Get it right and your <strong>Laravel SaaS app</strong> will scale gracefully, keep customer data safely isolated, and let you sleep at night without worrying about cross-tenant data leaks. This article covers the patterns I've used in real production environments — not theoretical code from a tutorial, but battle-tested approaches that hold up under real load.</p>
+
+  <blockquote><p>"The architecture decisions you make before your first paying customer will outlast your first three rounds of funding. Multi-tenancy is one of the few places where you genuinely cannot iterate your way out of a bad early choice."</p></blockquote>
+
+  <h2 id="what-is-multitenancy">What Is Multi-Tenancy and Why Does It Matter?</h2>
+
+  <p>Multi-tenancy is the ability of a single application instance to serve multiple customers — tenants — while keeping their data logically or physically separate. It's the foundation of virtually every <strong>SaaS product built with PHP or Laravel</strong> today.</p>
+
+  <p>Unlike single-tenant apps where you spin up a fresh instance per customer, a multi-tenant architecture runs one codebase and serves everyone. The efficiency gains are enormous: lower infrastructure costs, simpler deployments, and a single place to push updates. But the tradeoff is that you carry the full responsibility of keeping tenant data separated. A single missed <code>where tenant_id = ?</code> clause can become a catastrophic data breach.</p>
+
+  <p>The good news: Laravel's architecture makes multi-tenancy more tractable than any other PHP framework I've worked with. Its service container, middleware pipeline, and Eloquent global scopes are perfectly suited for the patterns we'll cover below.</p>
+
+  <h2 id="three-models">The Three Multi-Tenancy Models in Laravel</h2>
+
+  <p>Before writing a line of code, you need to choose your isolation model. In Laravel SaaS development, there are three primary approaches:</p>
+
+  <ol>
+    <li><strong>Database-per-tenant</strong> — each tenant gets their own dedicated database</li>
+    <li><strong>Schema-per-tenant</strong> — each tenant gets their own schema within the same database server (common with PostgreSQL)</li>
+    <li><strong>Shared database, shared schema</strong> — all tenants share the same tables, distinguished by a <code>tenant_id</code> column</li>
+  </ol>
+
+  <p>Each model represents a different point on the isolation-versus-efficiency spectrum. Let me walk through what each one means in practice.</p>
+
+  <h2 id="database-per-tenant">Database-Per-Tenant: Maximum Isolation</h2>
+
+  <p>The database-per-tenant model is the most isolated approach. Every time a new customer signs up, your Laravel app provisions a fresh database, runs migrations against it, and associates it with that tenant's record in a central "landlord" database.</p>
+
+  <h3>When this model makes sense</h3>
+
+  <p>Choose database-per-tenant when your customers are enterprises with strict data residency requirements, when you operate in regulated industries like healthcare or finance, or when individual tenants have genuinely huge data volumes that would cause performance problems in a shared schema.</p>
+
+  <p>The clear advantage is physical isolation. Even if a query somehow bypassed your application-level tenant checks — which shouldn't happen, but you're planning for the worst — there's a hard boundary at the database level. You can also restore a single tenant from backup without affecting anyone else, which compliance teams love.</p>
+
+  <p>The tradeoff is operational complexity. Running database migrations across hundreds of tenant databases requires careful orchestration. I've used a queued job approach in Laravel where each tenant database migration is dispatched as an independent job, allowing you to track progress and handle failures per tenant without bringing down the whole migration run.</p>
+
+  <pre><code>// Dispatch migrations across all tenant databases
+Tenant::each(function ($tenant) {
+    dispatch(new RunTenantMigrations($tenant));
+});
+
+// Inside RunTenantMigrations job
+public function handle(): void
+{
+    DB::purge('tenant');
+    config(['database.connections.tenant.database' => $this->tenant->database]);
+
+    Artisan::call('migrate', [
+        '--database' => 'tenant',
+        '--path'     => '/database/migrations/tenant',
+        '--force'    => true,
+    ]);
+}</code></pre>
+
+  <div class="callout">
+    <div class="callout-lbl">Pro Tip</div>
+    <p>Keep a separate <code>/database/migrations/tenant</code> directory for tenant-specific migrations and <code>/database/migrations</code> for your central landlord tables. This separation prevents accidental mixing of scopes and makes your migration history far easier to reason about.</p>
+  </div>
+
+  <h2 id="shared-schema">Shared Schema: Efficient and Scalable</h2>
+
+  <p>The shared schema model — sometimes called single-database multi-tenancy — is where all tenants share the same tables and are distinguished by a <code>tenant_id</code> foreign key on every table. This is the model I reach for most often when building <strong>PHP SaaS applications</strong> at early-to-mid scale, because it has the lowest operational overhead while still being very secure when implemented correctly.</p>
+
+  <p>The secret weapon here is <strong>Eloquent Global Scopes</strong>. Rather than manually appending <code>->where('tenant_id', $currentTenant->id)</code> to every single query — which is error-prone and will eventually bite you — you define a global scope that automatically injects the tenant filter into every query for every tenant-scoped model.</p>
+
+  <pre><code>// app/Models/Scopes/TenantScope.php
+class TenantScope implements Scope
+{
+    public function apply(Builder $builder, Model $model): void
+    {
+        if ($tenantId = app('currentTenant')?->id) {
+            $builder->where('tenant_id', $tenantId);
+        }
+    }
+}
+
+// Apply to any tenant-scoped model via trait
+trait BelongsToTenant
+{
+    protected static function bootBelongsToTenant(): void
+    {
+        static::addGlobalScope(new TenantScope());
+
+        static::creating(function ($model) {
+            $model->tenant_id ??= app('currentTenant')->id;
+        });
+    }
+}</code></pre>
+
+  <p>With this trait applied to your Eloquent models, every query is automatically filtered. The tenant context is set once — in middleware — and flows through the entire request lifecycle. It's clean, it's predictable, and critically, it's hard to accidentally bypass.</p>
+
+  <h2 id="middleware">Building the Tenant Middleware</h2>
+
+  <p>The tenant middleware is the entry point of your entire multi-tenancy system. Its job is simple: identify which tenant this request belongs to, resolve that tenant from the database, bind it into the service container, and set up the database connection if you're using database-per-tenant isolation.</p>
+
+  <pre><code>// app/Http/Middleware/IdentifyTenant.php
+class IdentifyTenant
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        $host     = $request->getHost();
+        $subdomain = explode('.', $host)[0];
+
+        $tenant = Tenant::where('subdomain', $subdomain)
+            ->where('is_active', true)
+            ->firstOrFail();
+
+        // Bind into container for global access
+        app()->instance('currentTenant', $tenant);
+
+        // Set tenant on the authenticated user if applicable
+        if ($user = $request->user()) {
+            abort_if($user->tenant_id !== $tenant->id, 403);
+        }
+
+        return $next($request);
+    }
+}</code></pre>
+
+  <p>Register this middleware in your HTTP kernel's route middleware and apply it to every route group that handles tenant traffic. Don't apply it to your marketing site, your public sign-up flow, or your billing webhooks — those live outside the tenant context.</p>
+
+  <h2 id="subdomain">Subdomain Routing in Laravel</h2>
+
+  <p>One of the most polished experiences you can give your SaaS customers is a dedicated subdomain — <code>acme.yourapp.com</code>, <code>globex.yourapp.com</code>. It feels professional, makes deep-linking natural, and gives you a reliable signal to identify the tenant on every request.</p>
+
+  <p>Laravel makes subdomain routing remarkably clean:</p>
+
+  <pre><code>// routes/web.php
+Route::domain('{tenant}.yourapp.com')
+    ->middleware(['web', 'tenant'])
+    ->group(base_path('routes/tenant.php'));
+
+// Or dynamically from config
+Route::domain('{tenant}.' . config('app.base_domain'))
+    ->middleware(['web', IdentifyTenant::class])
+    ->group(base_path('routes/tenant.php'));</code></pre>
+
+  <p>On the infrastructure side, you'll need a wildcard DNS record pointing <code>*.yourapp.com</code> to your server, and a wildcard SSL certificate from Let's Encrypt or your CDN provider. Cloudflare makes the certificate part trivially easy and is what I use on most <strong>Laravel SaaS deployments</strong>.</p>
+
+  <h2 id="pitfalls">Common Pitfalls and How to Avoid Them</h2>
+
+  <p>After shipping multiple multi-tenant products in PHP and Laravel, I've made — and fixed — most of the mistakes you can make. Here are the ones that hurt the most:</p>
+
+  <ul>
+    <li><strong>Caching without tenant isolation.</strong> If you cache a query result under a generic key like <code>users:list</code>, every tenant will see the same cached data. Always namespace cache keys with the tenant ID: <code>"tenant:{$tenantId}:users:list"</code>.</li>
+    <li><strong>Queue jobs that lose tenant context.</strong> When you dispatch a queued job, the tenant context from the middleware is gone. Store the tenant ID on the job and re-resolve it in the <code>handle()</code> method.</li>
+    <li><strong>File storage mixing.</strong> Every uploaded file should live under a tenant-scoped path in S3 or your local disk: <code>tenants/{tenant_id}/uploads/filename.pdf</code>. Never let files from different tenants share a flat directory.</li>
+    <li><strong>Forgetting to scope relationships.</strong> It's not enough to scope the parent model — eager-loaded relationships need to be scoped too, or a crafty URL manipulation can expose cross-tenant data through a nested resource endpoint.</li>
+    <li><strong>Global Eloquent observers firing across tenants.</strong> If you use model observers for things like audit logging, make sure the observer respects the current tenant context and writes to the correct tenant's audit trail.</li>
+  </ul>
+
+  <h2 id="choosing">Which Model Should You Choose?</h2>
+
+  <p>My honest recommendation after two decades of building <strong>PHP and Laravel SaaS applications</strong>: start with shared schema, plan for database-per-tenant at enterprise tier.</p>
+
+  <p>For most early-stage SaaS products, the operational simplicity of shared schema far outweighs its limitations. You can run migrations with a single <code>php artisan migrate</code>, you don't need to manage connection pools across hundreds of databases, and your infrastructure costs stay lean while you find product-market fit.</p>
+
+  <p>When you land your first enterprise customer who asks about data residency, you can introduce a database-per-tenant option as a premium tier feature — even in the same codebase. The key is making the tenant context and database connection abstract enough from day one that swapping the connection per tenant is a configuration change, not a rewrite.</p>
+
+  <p>The multi-tenancy architecture you choose shapes every other decision you'll make about your SaaS product — from how you handle backups to how you implement your billing system to how you debug a production issue at 2 AM. Take the time to get it right, and it will pay dividends for the entire life of your product.</p>
+
+  <p>If you're working on a <strong>Laravel SaaS application</strong> and want to talk through the architecture choices specific to your product, feel free to reach out. I've been through this enough times to help you avoid the most expensive mistakes before you make them.</p>
+
+  <div class="author-box">
+    <div class="author-img"><img src="https://nkmswot.github.io/images/karthik.jpeg" alt="Karthik Mani — Full Stack Developer PHP Laravel Tamil Nadu"/></div>
+    <div>
+      <div class="author-name">Karthik Mani</div>
+      <div class="author-title">Full Stack Developer & IT Lead · SWOT Solutions</div>
+      <div class="author-bio">20+ years building PHP, Laravel, React and SaaS applications from Tamil Nadu, India. Currently available for full-time and contract work. <a href="https://www.linkedin.com/in/softwarekarthik/" style="color:var(--lime);" target="_blank" rel="noopener noreferrer">Connect on LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <!-- Bottom share bar -->
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);">
+    <div class="share-lbl" style="margin-bottom:12px;">Found this useful? Share it:</div>
+    <div class="share-bar" style="flex-wrap:wrap;">
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Building+Multi-Tenant+SaaS+Apps+with+Laravel&url=https://nkmswot.github.io/blog-laravel-multitenant-saas.html" target="_blank" rel="noopener noreferrer">𝕏 Share on Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://nkmswot.github.io/blog-laravel-multitenant-saas.html" target="_blank" rel="noopener noreferrer">in Share on LinkedIn</a>
+      <button class="share-btn cp" onclick="copyLink()">⧉ Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<div class="related">
+  <div class="related-title">Continue Reading</div>
+  <div class="related-grid">
+    <a href="blog-react-laravel-fullstack.html" class="rel-card">
+      <div class="rel-cat">React · Full Stack</div>
+      <div class="rel-ttl">React + Laravel: The Full Stack Setup I Use on Every Project</div>
+    </a>
+    <a href="blog-launch-saas-solo-fullstack.html" class="rel-card">
+      <div class="rel-cat">SaaS · Indie Dev</div>
+      <div class="rel-ttl">Idea to Production: Launching a SaaS App Solo as a Full Stack Dev</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="fl"><em>K</em>arthik<em>.</em></a>
+  <p class="fc">© 2025 Karthik Mani · Full Stack Developer · PHP · Laravel · React · SaaS · Tamil Nadu</p>
+  <div style="display:flex;gap:20px;"><a href="index.html" style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--muted)'">Home</a><a href="index.html#contact" style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--muted)'">Contact</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const el=document.getElementById('progress');
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  el.style.width=(window.scrollY/h*100)+'%';
+});
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    const btns=document.querySelectorAll('.share-btn.cp');
+    btns.forEach(b=>{const old=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=old,2000);});
+  });
+}
+</script>
+</body>
+</html>

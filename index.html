@@ -1,720 +1,482 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Karthik Mani - Fullstack Developer Trichy Tamilnadu</title>
-    <!-- Meta Description (SEO & Social Media Preview) -->
-<meta name="description" content="Discover amazing web solutions with expert PHP & Laravel development. Get top-notch web apps today!">
-<!-- Meta Keywords (Less relevant for SEO but still useful) -->
-<meta name="keywords" content="Trichy, Trichy PHP, Trichy laravel, Trichy flutter, Web development, PHP, Laravel, JavaScript, React, WordPress">
-<!-- Meta Author (Shows who created the website) -->
-<meta name="author" content="Karthik - Full Stack Developer">
-<meta property="og:title" content="Karthik Mani - Fullstack Developer Trichy Tamilnadu">
-<meta property="og:description" content="Discover amazing web solutions with expert PHP & Laravel development. Get top-notch web apps today!">
-<meta property="og:image" content="https://nkmswot.github.io/og-image.png">
-<meta property="og:url" content="https://nkmswot.github.io/">
-<meta name="twitter:card" content="summary_large_image">
-
-
-<!-- Favicon (For Browsers) -->
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"> <!-- Classic Favicon -->
-
-<!-- Apple Touch Icons (For iPhones and iPads) -->
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-
-<!-- Android Chrome Icons -->
-<link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-
-<!-- Web App Manifest (For PWA) -->
-<link rel="manifest" href="site.webmanifest">
-
-<!-- Safari Pinned Tab Icon -->
-<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-
-<!-- Theme Color (For Mobile Browsers) -->
-<meta name="theme-color" content="#ffffff">
-
-
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F7NRBX8MBG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F7NRBX8MBG');
-</script>
-    </head>
-  <body>
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-sm">
-      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="#hero" class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Karthik Mani</a>
-        <div class="hidden md:flex space-x-8">
-          <a href="#about" class="hover:text-indigo-600 transition-colors font-medium">About</a>
-          <a href="#skills" class="hover:text-indigo-600 transition-colors font-medium">Skills</a>
-          <a href="#projects" class="hover:text-indigo-600 transition-colors font-medium">Projects</a>
-          <a href="#experience" class="hover:text-indigo-600 transition-colors font-medium">Experience</a>
-          <a href="#contact" class="hover:text-indigo-600 transition-colors font-medium">Contact</a>
-        </div>
-        <button id="menuBtn" class="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
-        <div class="container mx-auto px-4 py-2 flex flex-col space-y-4">
-          <a href="#about" class="py-2 hover:text-indigo-600 transition-colors">About</a>
-          <a href="#skills" class="py-2 hover:text-indigo-600 transition-colors">Skills</a>
-          <a href="#projects" class="py-2 hover:text-indigo-600 transition-colors">Projects</a>
-          <a href="#experience" class="py-2 hover:text-indigo-600 transition-colors">Experience</a>
-          <a href="#contact" class="py-2 hover:text-indigo-600 transition-colors">Contact</a>
-        </div>
-      </div>
-    </nav>
-
-    <section id="hero" class="min-h-screen pt-20 flex bg-slate-50 items-center relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-indigo-500"></div>
-        <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-pink-500"></div>
-        <div class="absolute top-1/2 left-1/2 w-80 h-80 rounded-full bg-purple-500 transform -translate-x-1/2 -translate-y-1/2"></div>
-      </div>
-      <div class="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center">
-        <div class="md:w-1/2 text-center md:text-left">
-          <p class="text-lg md:text-xl text-indigo-600 font-medium mb-4">Hello, I'm</p>
-          <h1 class="text-4xl md:text-6xl font-bold mb-6">Karthik Mani</h1>
-          <div class="text-xl md:text-2xl font-semibold text-gray-700 mb-8 h-16">
-            <span class="bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
-              Fullstack Developer 🚀
-            </span>
-          </div>
-          <p class="text-gray-600 text-lg mb-8 max-w-lg mx-auto md:mx-0">
-            Passionate about creating exceptional web experiences with modern technologies
-          </p>
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-            <a href="#contact" class="px-8 py-3 rounded-full text-white font-medium bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl">
-              Get In Touch
-            </a>
-            <a href="#projects" class="px-8 py-3 rounded-full text-indigo-600 font-medium border-2 border-indigo-600 hover:bg-indigo-50 transition-colors">
-              View Projects
-            </a>
-          </div>
-          <div class="mt-10 flex justify-center md:justify-start space-x-6">
-            <a href="https://github.com/nkmswot" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition-colors">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition-colors">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="mailto:karthikswot@gmail.com" class="text-gray-600 hover:text-indigo-600 transition-colors">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
-          <div class="relative">
-            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-float">
-              <img 
-                src="images/karthik.jpeg"
-                alt="Karthik Mani Web Developer Tamilnadu" 
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="absolute -bottom-4 -right-4 bg-white rounded-full shadow-lg p-4">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-          <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-10 md:mb-0">
-            <div class="rounded-lg overflow-hidden shadow-2xl transform hover:rotate-2 transition-transform duration-300">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" 
-                alt="PHP Developer Trichy"
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-          <div class="md:w-1/2 md:pl-12">
-            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-              <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Fullstack Developer 🚀</h3>
-              <p class="text-gray-600 mb-6">
-                I'm a passionate Web Developer with over 20 years of experience in building modern web applications. My journey started as a Junior Web Designer, and I've evolved to master full-stack development. I thrive on turning complex problems into simple, beautiful, and intuitive designs.
-              </p>
-              <p class="text-gray-600 mb-8">
-                I'm currently working as a Fullstack Developer &amp; IT Lead at SWOT Solutions, where I develop and maintain enterprise-level web applications using Laravel, React and Node.js. Outside of work, I'm always exploring new technologies and contributing to open-source projects.
-              </p>
-              <div class="grid grid-cols-2 gap-4 mb-8">
-                <div>
-                  <p class="font-semibold">Name:</p>
-                  <p class="text-gray-600">Karthik Mani</p>
-                </div>
-                <div>
-                  <p class="font-semibold">Email:</p>
-                  <p class="text-gray-600">karthikswot@gmail.com</p>
-                </div>
-                <div>
-                  <p class="font-semibold">Location:</p>
-                  <p class="text-gray-600">Tamilnadu, India</p>
-                </div>
-                <div>
-                  <p class="font-semibold">Availability:</p>
-                  <p class="text-gray-600">Available for Fulltime &amp; Contract</p>
-                </div>
-              </div>
-              <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" class="px-8 py-3 rounded-full text-white font-medium bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg inline-block">Download Resume</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="py-24 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">My Skills</h2>
-          <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
-   <!--          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-</svg> -->
- <h3 class="text-2xl font-bold mb-8 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Technical Skills</h3>
-            <div class="space-y-8">
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">HTML/CSS</span>
-                  <span>95%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[95%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">JavaScript</span>
-                  <span>90%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">TypeScript</span>
-                  <span>70%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">React</span>
-                  <span>70%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[85%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Node.js</span>
-                  <span>70%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">PHP</span>
-                  <span>90%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Laravel</span>
-                  <span>90%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Python</span>
-                  <span>70%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-indigo-600 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold mb-8 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Professional Skills</h3>
-            <div class="space-y-8">
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Communication</span>
-                  <span>80%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Team Work</span>
-                  <span>80%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[95%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Problem Solving</span>
-                  <span>90%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[85%]"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Project Management</span>
-                  <span>85%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-               <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Critical Thinking</span>
-                  <span>90%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-               <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Creativity</span>
-                  <span>80%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-
-               <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Strategic Thinking</span>
-                  <span>80%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-               <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium">Prompt Engineering</span>
-                  <span>70%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div>
-             <!--    <div>
-               <div class="flex justify-between mb-2">
-  <span class="font-medium flex items-center gap-2">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
-    </svg>
-    Prompt Engineering
-  </span>
-  <span>80%</span>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Karthik Mani — Full Stack Developer · PHP · Laravel · React · SaaS</title>
+<meta name="description" content="Karthik Mani — Full Stack Developer with 20+ years crafting PHP, Laravel, React & SaaS applications from Tamil Nadu, India. Available for full-time & contract work."/>
+<meta name="keywords" content="full stack developer, PHP developer, Laravel developer, React developer, SaaS apps, Karthik Mani, Tamil Nadu, Trichy, web developer India"/>
+<meta name="author" content="Karthik Mani"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://nkmswot.github.io/"/>
+<meta property="og:title" content="Karthik Mani — Full Stack Developer · PHP · Laravel · React · SaaS"/>
+<meta property="og:description" content="20+ years crafting PHP, Laravel, React & SaaS applications from Tamil Nadu, India."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://nkmswot.github.io/"/>
+<meta property="og:image" content="https://nkmswot.github.io/images/karthik.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Karthik Mani — Full Stack Developer"/>
+<meta name="twitter:description" content="20+ years crafting PHP, Laravel, React & SaaS applications from Tamil Nadu, India."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Karthik Mani","jobTitle":"Full Stack Developer","url":"https://nkmswot.github.io/","email":"karthikswot@gmail.com","sameAs":["https://www.linkedin.com/in/softwarekarthik/"],"address":{"@type":"PostalAddress","addressRegion":"Tamil Nadu","addressCountry":"IN"},"knowsAbout":["PHP","Laravel","React","Node.js","SaaS","TypeScript","MySQL"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--lime:#C8FF00;--void:#090909;--slate:#141414;--chalk:#F0EDE6;--muted:#666;--border:rgba(240,237,230,.07);}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--void);color:var(--chalk);overflow-x:hidden;cursor:none;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--lime);}
+#CUR{position:fixed;z-index:9999;pointer-events:none;top:0;left:0;will-change:transform;}
+#CUR .dot{width:8px;height:8px;background:var(--lime);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .15s,height .15s;}
+#CUR .ring{width:40px;height:40px;border:1px solid rgba(200,255,0,.4);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;}
+body.hov #CUR .dot{width:16px;height:16px;}
+body.hov #CUR .ring{width:64px;height:64px;opacity:.3;}
+#loader{position:fixed;inset:0;background:var(--void);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .6s ease;}
+#loader.out{opacity:0;pointer-events:none;}
+.ld-name{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.45em;color:var(--muted);}
+.ld-track{width:220px;height:1px;background:rgba(240,237,230,.08);}
+.ld-fill{height:100%;background:var(--lime);width:0;transition:width .08s linear;}
+.ld-pct{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.15em;}
+#nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:var(--chalk);text-decoration:none;}
+.nav-logo em{color:var(--lime);font-style:normal;}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk);opacity:.5;text-decoration:none;transition:opacity .2s;}
+.nav-links a:hover{opacity:1;}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;background:var(--lime);color:var(--void);padding:9px 22px;text-decoration:none;font-weight:500;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+#hburg{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;padding:4px;}
+#hburg span{display:block;width:22px;height:1px;background:var(--chalk);transition:all .3s ease;}
+#mob{position:fixed;inset:0;background:var(--void);z-index:700;display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+#mob.on{display:flex;}
+#mob a{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.06em;color:var(--chalk);text-decoration:none;transition:color .2s;}
+#mob a:hover{color:var(--lime);}
+/* HERO */
+#hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;padding:0 48px;max-width:1440px;margin:auto;}
+.hero-main{display:grid;grid-template-columns:1fr 400px;align-items:end;padding-top:130px;padding-bottom:40px;gap:0;}
+.hero-hl{font-family:'Bebas Neue',sans-serif;font-size:clamp(88px,11.5vw,176px);line-height:.88;letter-spacing:.015em;overflow:hidden;}
+.hero-hl .ln{display:block;transform:translateY(115%);animation:liftUp .85s cubic-bezier(.22,1,.36,1) forwards;}
+.hero-hl .ln:nth-child(2){animation-delay:.1s;}.hero-hl .ln:nth-child(3){animation-delay:.2s;}
+.lime{color:var(--lime);}
+@keyframes liftUp{to{transform:translateY(0);}}
+.hero-desc{margin-top:28px;font-family:'Instrument Serif',serif;font-size:1.1rem;font-style:italic;color:var(--muted);max-width:420px;line-height:1.75;opacity:0;animation:fIn .7s .65s forwards;}
+@keyframes fIn{to{opacity:1;}}
+.hero-btns{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fIn .7s .78s forwards;}
+.btn-a{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:var(--lime);color:var(--void);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:box-shadow .25s,transform .25s;}
+.btn-a:hover{box-shadow:0 16px 48px rgba(200,255,0,.28);transform:translateY(-2px);}
+.btn-b{display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border:1px solid var(--border);color:rgba(240,237,230,.6);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s;}
+.btn-b:hover{border-color:var(--lime);color:var(--lime);}
+.hero-right{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:4px;gap:16px;opacity:0;animation:fIn .7s .5s forwards;}
+.hero-photo{position:relative;width:100%;height:460px;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(15%) contrast(1.05);}
+.photo-frame{position:absolute;inset:-7px;border:1px solid rgba(200,255,0,.18);pointer-events:none;}
+.photo-tl,.photo-br{position:absolute;width:20px;height:20px;border-color:var(--lime);border-style:solid;border-width:0;}
+.photo-tl{top:-1px;left:-1px;border-top-width:2px;border-left-width:2px;}
+.photo-br{bottom:-1px;right:-1px;border-bottom-width:2px;border-right-width:2px;}
+.hero-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.kpi{border:1px solid var(--border);padding:18px 14px;text-align:center;}
+.kpi-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--lime);line-height:1;}
+.kpi-l{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.hero-avail{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.blink{width:7px;height:7px;background:var(--lime);border-radius:50%;flex-shrink:0;animation:blinker 2s ease-in-out infinite;}
+@keyframes blinker{0%,100%{box-shadow:0 0 0 0 rgba(200,255,0,.5);}50%{box-shadow:0 0 0 6px rgba(200,255,0,0);}}
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:13px 0;overflow:hidden;white-space:nowrap;margin-top:64px;}
+.ticker-inner{display:inline-flex;gap:52px;animation:tick 22s linear infinite;}
+.ticker-inner span{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;color:rgba(240,237,230,.15);}
+.ticker-inner span.hi{color:var(--lime);}
+@keyframes tick{to{transform:translateX(-50%);}}
+/* SECTIONS */
+.sec{max-width:1440px;margin:0 auto;padding:112px 48px;}
+.sec-lbl{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.sec-lbl::after{content:'';flex:0 0 36px;height:1px;background:var(--lime);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,104px);line-height:.88;letter-spacing:.02em;}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:5fr 3fr;grid-template-rows:auto auto;gap:10px;margin-top:56px;}
+.ac{border:1px solid var(--border);background:var(--slate);}
+.ac-photo{grid-row:span 2;overflow:hidden;}
+.ac-photo img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(20%) contrast(1.08);display:block;transition:transform .6s ease;}
+.ac-photo:hover img{transform:scale(1.03);}
+.ac-text{padding:40px;}
+.ac-text p{font-size:.98rem;line-height:1.85;color:rgba(240,237,230,.65);}
+.ac-text p+p{margin-top:14px;}
+.ac-text strong{color:var(--chalk);}
+.ac-lime{background:var(--lime);padding:32px 40px;}
+.ac-lime-q{font-family:'Instrument Serif',serif;font-size:clamp(1.2rem,2vw,1.7rem);font-style:italic;color:var(--void);line-height:1.5;}
+.ac-lime-sig{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-top:14px;}
+.ac-meta{padding:32px 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.am-item label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;}
+.am-item span{font-size:.88rem;font-weight:500;}
+/* SKILLS */
+.skills-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;}
+.skills-note{font-family:'Instrument Serif',serif;font-style:italic;font-size:1rem;color:var(--muted);max-width:300px;text-align:right;line-height:1.7;}
+.sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.sk-card{border:1px solid var(--border);background:var(--slate);padding:26px 22px;transition:border-color .3s,transform .35s cubic-bezier(.22,1,.36,1);}
+.sk-card:hover{border-color:var(--lime);transform:translateY(-5px);}
+.sk-name{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.04em;line-height:1;}
+.sk-pct{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--lime);margin-top:6px;margin-bottom:14px;}
+.sk-track{height:1.5px;background:rgba(240,237,230,.07);}
+.sk-bar{height:100%;background:var(--lime);width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1);}
+.sk-desc{font-size:.75rem;color:var(--muted);margin-top:14px;line-height:1.6;}
+/* PROJECTS */
+.proj-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:48px;}
+.proj-note{font-family:'Instrument Serif',serif;font-style:italic;font-size:1rem;color:var(--muted);max-width:280px;text-align:right;line-height:1.7;}
+.proj-list{display:flex;flex-direction:column;}
+.pr{display:grid;grid-template-columns:52px 1fr auto 48px;align-items:center;gap:24px;padding:24px 12px;border-bottom:1px solid var(--border);cursor:none;transition:background .25s;}
+.pr:first-child{border-top:1px solid var(--border);}
+.pr:hover{background:rgba(200,255,0,.03);}
+.pr:hover .pr-num{color:var(--lime);}
+.pr:hover .pr-arr{color:var(--lime);transform:translate(3px,-3px);}
+.pr-num{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.1em;}
+.pr-name{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.04em;line-height:1;}
+.pr-sub{font-size:.78rem;color:var(--muted);margin-top:3px;}
+.pr-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.pr-tag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(240,237,230,.12);padding:4px 9px;color:rgba(240,237,230,.4);}
+.pr-arr{font-size:1.3rem;color:rgba(240,237,230,.2);transition:color .25s,transform .3s;}
+#fpv{position:fixed;width:280px;height:165px;border:1px solid rgba(200,255,0,.2);overflow:hidden;pointer-events:none;z-index:600;opacity:0;transform:scale(.92);transition:opacity .22s,transform .22s;}
+#fpv img{width:100%;height:100%;object-fit:cover;}
+/* EXPERIENCE */
+.exp-layout{display:grid;grid-template-columns:240px 1fr;gap:0;margin-top:60px;border:1px solid var(--border);}
+.exp-tabs{border-right:1px solid var(--border);display:flex;flex-direction:column;}
+.et{background:none;border:none;text-align:left;padding:20px 24px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);cursor:none;border-left:2px solid transparent;transition:color .2s,border-color .2s,background .2s;border-top:none;border-right:none;border-bottom:1px solid var(--border);}
+.et:last-child{border-bottom:none;}
+.et.on{color:var(--lime);border-left-color:var(--lime);background:rgba(200,255,0,.03);}
+.ep{display:none;padding:48px;}
+.ep.on{display:block;}
+.ep-co{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;}
+.ep-title{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:.03em;line-height:.95;margin-bottom:8px;}
+.ep-period{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;margin-bottom:28px;}
+.ep-body{font-size:.93rem;line-height:1.85;color:rgba(240,237,230,.6);}
+.ep-body strong{color:var(--chalk);}
+.ep-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px;}
+.ep-chip{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(200,255,0,.18);color:var(--lime);padding:5px 12px;background:rgba(200,255,0,.05);}
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;gap:10px;margin-top:60px;}
+.bc{border:1px solid var(--border);background:var(--slate);overflow:hidden;transition:border-color .3s;display:flex;flex-direction:column;}
+.bc:hover{border-color:rgba(200,255,0,.25);}
+.bc.big{grid-row:span 2;}
+.bc-thumb{overflow:hidden;flex-shrink:0;}
+.bc.big .bc-thumb{height:260px;}
+.bc:not(.big) .bc-thumb{height:140px;}
+.bc-thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(35%);display:block;transition:transform .5s ease,filter .3s;}
+.bc:hover .bc-thumb img{transform:scale(1.05);filter:grayscale(10%);}
+.bc.big .bc-body{padding:32px;flex:1;display:flex;flex-direction:column;}
+.bc:not(.big) .bc-body{padding:24px;}
+.bc-cat{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;}
+.bc-title{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;line-height:1.02;text-decoration:none;color:var(--chalk);display:block;}
+.bc.big .bc-title{font-size:2rem;}
+.bc:not(.big) .bc-title{font-size:1.45rem;}
+.bc-excerpt{font-size:.8rem;color:var(--muted);line-height:1.7;margin-top:10px;}
+.bc:not(.big) .bc-excerpt{display:none;}
+.bc-meta{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--muted);margin-top:14px;display:flex;gap:14px;}
+.bc.big .bc-meta{margin-top:auto;padding-top:14px;}
+.bc-read{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);text-decoration:none;transition:gap .2s;}
+.bc-read:hover{gap:10px;}
+/* CONTACT */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:24px;align-items:start;}
+.contact-giant{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,144px);line-height:.85;letter-spacing:.015em;margin-top:16px;}
+.ci-list{margin-top:40px;display:flex;flex-direction:column;}
+.ci-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);}
+.ci-lbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);width:84px;flex-shrink:0;}
+.ci-val{font-size:.92rem;}
+.ci-val a{color:var(--chalk);text-decoration:none;transition:color .2s;}
+.ci-val a:hover{color:var(--lime);}
+.fg{margin-bottom:22px;}
+.fl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:9px;}
+.fi{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(240,237,230,.12);padding:12px 0;color:var(--chalk);font-family:'Outfit',sans-serif;font-size:.92rem;outline:none;caret-color:var(--lime);transition:border-color .25s;}
+.fi::placeholder{color:rgba(240,237,230,.18);}
+.fi:focus{border-bottom-color:var(--lime);}
+textarea.fi{resize:none;height:96px;}
+.f-sub{width:100%;padding:16px;background:transparent;border:1px solid rgba(240,237,230,.18);color:var(--chalk);font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;cursor:none;transition:background .25s,color .25s,border-color .25s;display:block;margin-top:8px;}
+.f-sub:hover{background:var(--lime);color:var(--void);border-color:var(--lime);}
+.f-ok{display:none;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--lime);letter-spacing:.12em;padding:16px 0;text-align:center;}
+footer{max-width:1440px;margin:0 auto;padding:28px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fl2{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.08em;text-decoration:none;color:var(--chalk);}
+.fl2 em{color:var(--lime);font-style:normal;}
+.fc{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);letter-spacing:.08em;}
+.flinks{display:flex;gap:22px;}
+.flinks a{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--lime);}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1);}
+.rv.v{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+@media(max-width:1100px){
+  #nav{padding:18px 28px;}.nav-links,.nav-cta{display:none;}#hburg{display:flex;}
+  #hero{padding:0 28px;}
+  .hero-main{grid-template-columns:1fr;padding-top:110px;padding-bottom:32px;}
+  .hero-right{opacity:1;animation:none;margin-top:40px;flex-direction:row;flex-wrap:wrap;}
+  .hero-photo{width:260px;height:320px;}
+  .hero-kpis{flex:1;min-width:180px;}
+  .sec{padding:88px 28px;}
+  .about-grid{grid-template-columns:1fr;}
+  .ac-photo{height:300px;grid-row:auto;}
+  .sk-grid{grid-template-columns:repeat(2,1fr);}
+  .pr{grid-template-columns:44px 1fr 36px;}.pr-tags{display:none;}
+  .exp-layout{grid-template-columns:1fr;}.exp-tabs{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);}
+  .et{border-left:none;border-bottom:2px solid transparent;white-space:nowrap;padding:14px 18px;}.et.on{border-bottom-color:var(--lime);}
+  .blog-grid{grid-template-columns:1fr;grid-template-rows:auto;}.bc.big{grid-row:auto;}
+  .contact-layout{grid-template-columns:1fr;gap:40px;}
+  footer{padding:24px 28px;}
+}
+@media(max-width:640px){
+  #nav{padding:16px 20px;}#hero{padding:0 20px;}
+  .hero-hl{font-size:clamp(72px,20vw,110px);}
+  .sec{padding:72px 20px;}.sk-grid{grid-template-columns:1fr 1fr;}
+  .about-grid{gap:8px;}.hero-right{flex-direction:column;}
+  .hero-photo{width:100%;max-width:340px;height:280px;}
+  footer{padding:20px;}.flinks{flex-wrap:wrap;gap:14px;}
+}
+</style>
+</head>
+<body>
+<div id="CUR"><div class="dot"></div><div class="ring"></div></div>
+<div id="loader">
+  <div class="ld-name">KARTHIK MANI</div>
+  <div class="ld-track"><div class="ld-fill" id="lf"></div></div>
+  <div class="ld-pct" id="lp">LOADING 0%</div>
 </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                  <div class="bg-pink-500 h-2.5 rounded-full w-[80%]"></div>
-                </div>
-              </div> -->
-            </div>
-          </div>
-        </div>
+<div id="fpv"><img id="fpvi" src="" alt=""/></div>
+<div id="mob">
+  <a href="#about" onclick="cM()">About</a><a href="#skills" onclick="cM()">Skills</a>
+  <a href="#projects" onclick="cM()">Projects</a><a href="#experience" onclick="cM()">Experience</a>
+  <a href="#blog" onclick="cM()">Blog</a><a href="#contact" onclick="cM()">Contact</a>
+</div>
+<nav id="nav">
+  <a href="#hero" class="nav-logo"><em>K</em>arthik<em>.</em></a>
+  <div class="nav-links">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#experience">Experience</a><a href="#blog">Blog</a>
+  </div>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <button id="hburg" aria-label="Toggle menu"><span id="hs1"></span><span id="hs2"></span></button>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-main">
+    <div>
+      <div class="hero-avail" style="opacity:0;animation:fIn .6s 1s forwards;">
+        <div class="blink"></div>Available for new projects — 2025
       </div>
-    </section>
-
-    <section id="projects" class="py-24 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">My Projects</h2>
-          <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/trichy-data.png"
-                alt="Trichy Data - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://trichydata.com" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">City Information Website</h3>
-              <p class="text-gray-600 mb-4">A fully responsive City Information website built with React and Node.js.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">React</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Node.js</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">TypeScript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">API</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/calculators.png"
-                alt="Calculator Paradise - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://calculatorparadise.com/" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Calculator Paradise</h3>
-              <p class="text-gray-600 mb-4">Precise Financial Calculators for Every Need with refreshing UI.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">React</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">TypeScript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Tailwind</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/expenshare.png"
-                alt="ExpenShare - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://expenshare.app/" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">ExpenShare App</h3>
-              <p class="text-gray-600 mb-4">Manage your money wisely, track daily expenses and stay within your budget effortlessly.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">React</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Tailwind</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Typescript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Supabase</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">API</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2nd row -->
-            <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/todo.png"
-                alt="Focused Todo - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://chromewebstore.google.com/detail/nognbljbdjgcnimgimlpaginadeiiefe?utm_source=item-share-cb" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Focused ToDo Chrome Extension</h3>
-              <p class="text-gray-600 mb-4">A Simple Todo Manager App that manages your todo list in a effective way and focused on a  single task.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Typescript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Javascript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Tailwind</span>
-              </div>
-            </div>
-          </div>
-
-            <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/mlmsoftware.png"
-                alt="ExpenShare - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://mlmsoftworks.com" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">MLMSoftworks</h3>
-              <p class="text-gray-600 mb-4">Complex financial application that can manage Network Marketing commission distribution.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">PHP</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Laravel</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Bootstrap</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">API</span>
-              </div>
-            </div>
-          </div>
-
-            <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <div class="relative overflow-hidden h-48">
-              <img src="images/atsresume.png"
-                alt="ATS Resume - Developed by Trichy Web Developer, Trichy PHP"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <a href="https://atsresume.swot.co.in" target="_blank" class="text-white bg-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">ATS Resume Optimizer</h3>
-              <p class="text-gray-600 mb-4">A simple resume optimizer for ATS, Industry and Country using Open AI API.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">React</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">TypeScript</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Tailwind</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Open AI</span>
-                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">API</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <h1 class="hero-hl" style="margin-top:18px;">
+        <span class="ln">FULL</span>
+        <span class="ln">STACK<span class="lime">.</span></span>
+        <span class="ln"><span class="lime">DEV</span></span>
+      </h1>
+      <p class="hero-desc">Karthik Mani — 20+ years crafting <strong>PHP, Laravel &amp; React</strong> applications and SaaS products from Tamil Nadu, India.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-a">View Work ↓</a>
+        <a href="#contact" class="btn-b">Let's Talk →</a>
       </div>
-    </section>
-
-    <section id="experience" class="py-24 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Experience</h2>
-          <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        <div class="max-w-4xl mx-auto">
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="flex flex-col sm:flex-row items-start mb-1 group-hover:text-indigo-600">
-              <div class="absolute left-0 sm:left-24 top-8 sm:top-7 w-4 h-4 bg-indigo-600 border-2 border-white rounded-full"></div>
-              <div class="flex-none w-32 font-medium">2018 - Present</div>
-              <div class="flex-1">
-                <div class="font-bold text-xl mb-1">Full Stack Developer &amp; IT Lead</div>
-                <div class="text-sm text-gray-600">SWOT Solutions</div>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start">
-              <div class="flex-none w-32"></div>
-              <div class="flex-1">
-                <p class="text-gray-600">Led development of enterprise web applications using PHP, Laravel, WordPress, React and Node.js. Mentored junior developers and implemented best practices.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="flex flex-col sm:flex-row items-start mb-1 group-hover:text-indigo-600">
-              <div class="absolute left-0 sm:left-24 top-8 sm:top-7 w-4 h-4 bg-indigo-600 border-2 border-white rounded-full"></div>
-              <div class="flex-none w-32 font-medium">2009 - 2018</div>
-              <div class="flex-1">
-                <div class="font-bold text-xl mb-1">Project Manager &amp; Software Developer</div>
-                <div class="text-sm text-gray-600">SWOT Solutions</div>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start">
-              <div class="flex-none w-32"></div>
-              <div class="flex-1">
-                <p class="text-gray-600">Developed and maintained multiple client projects. Worked with PHP, Laravel, Codeigniter, Yii, MySQL, WordPress.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="flex flex-col sm:flex-row items-start mb-1 group-hover:text-indigo-600">
-              <div class="absolute left-0 sm:left-24 top-8 sm:top-7 w-4 h-4 bg-indigo-600 border-2 border-white rounded-full"></div>
-              <div class="flex-none w-32 font-medium">2008 - 2009</div>
-              <div class="flex-1">
-                <div class="font-bold text-xl mb-1">Senior Web Developer</div>
-                <div class="text-sm text-gray-600">Antz</div>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start">
-              <div class="flex-none w-32"></div>
-              <div class="flex-1">
-                <p class="text-gray-600">Specialized in creating responsive web interfaces using HTML, CSS, and JavaScript.</p>
-              </div>
-            </div>
-          </div>
-
-            <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="flex flex-col sm:flex-row items-start mb-1 group-hover:text-indigo-600">
-              <div class="absolute left-0 sm:left-24 top-8 sm:top-7 w-4 h-4 bg-indigo-600 border-2 border-white rounded-full"></div>
-              <div class="flex-none w-32 font-medium">2006 - 2008</div>
-              <div class="flex-1">
-                <div class="font-bold text-xl mb-1">Web Designer</div>
-                <div class="text-sm text-gray-600">Hanson IT Park</div>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start">
-              <div class="flex-none w-32"></div>
-              <div class="flex-1">
-                <p class="text-gray-600">Creates visually appealing, user-friendly, and responsive designs for websites and web applications.</p>
-              </div>
-            </div>
-          </div>
-
-            <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="flex flex-col sm:flex-row items-start mb-1 group-hover:text-indigo-600">
-              <div class="absolute left-0 sm:left-24 top-8 sm:top-7 w-4 h-4 bg-indigo-600 border-2 border-white rounded-full"></div>
-              <div class="flex-none w-32 font-medium">2004 - 2006</div>
-              <div class="flex-1">
-                <div class="font-bold text-xl mb-1">Junior Web Designer</div>
-                <div class="text-sm text-gray-600">Dreams InfoSoft</div>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start">
-              <div class="flex-none w-32"></div>
-              <div class="flex-1">
-                <p class="text-gray-600">Designs simple web pages or sections based on predefined style guides and frameworks.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-avail" style="justify-content:flex-end;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;">Tamil Nadu · India</span>
       </div>
-    </section>
-
-    <section id="contact" class="py-24 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
-          <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-        </div>
-        <div class="max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="space-y-4">
-              <h3 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">Contact Information</h3>
-              <p class="text-gray-600">Feel free to reach out to me for any questions or opportunities!</p>
-              <div class="space-y-4">
-                <div class="flex items-center space-x-4">
-                  <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                      <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                  </div>
-                  <div>
-                    <p class="font-medium">Email</p>
-                    <p class="text-gray-600">karthikswot@gmail.com</p>
-                  </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                  <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                  </div>
-                  <div>
-                    <p class="font-medium">Location</p>
-                    <p class="text-gray-600">Tamilnadu, India</p>
-                  </div>
-                </div>
-              </div>
-              <div class="flex space-x-4 mt-8">
-                <a href="https://github.com/nkmswot" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </a>
-              </div>
-            </div>
-              <form id="contact-form" class="space-y-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" required>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" required>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                <textarea rows="4" id="message" name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-transparent" required></textarea>
-              </div>
-              <button type="submit" class="w-full px-8 py-3 rounded-lg text-white font-medium bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg" disabled>
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
+      <div class="hero-photo">
+        <img src="https://nkmswot.github.io/images/karthik.jpeg" alt="Karthik Mani — Full Stack Developer PHP Laravel React Tamil Nadu India"/>
+        <div class="photo-frame"></div><div class="photo-tl"></div><div class="photo-br"></div>
       </div>
-    </section>
+      <div class="hero-kpis">
+        <div class="kpi"><div class="kpi-n">20+</div><div class="kpi-l">Years</div></div>
+        <div class="kpi"><div class="kpi-n">50+</div><div class="kpi-l">Projects</div></div>
+        <div class="kpi"><div class="kpi-n">∞</div><div class="kpi-l">Coffee</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="hi">Full Stack Developer</span><span>PHP Expert</span><span class="hi">Laravel Architect</span><span>React Developer</span><span class="hi">SaaS Apps</span><span>Node.js</span><span class="hi">Tamil Nadu India</span><span>TypeScript</span><span class="hi">20+ Years</span><span>MySQL</span>
+      <span class="hi">Full Stack Developer</span><span>PHP Expert</span><span class="hi">Laravel Architect</span><span>React Developer</span><span class="hi">SaaS Apps</span><span>Node.js</span><span class="hi">Tamil Nadu India</span><span>TypeScript</span><span class="hi">20+ Years</span><span>MySQL</span>
+    </div>
+  </div>
+</div>
 
-    <script>
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
+<!-- ABOUT -->
+<section id="about" class="sec" style="border-top:1px solid var(--border);">
+  <div class="sec-lbl rv">01 — About</div>
+  <h2 class="sec-title rv d1">WHO<br/>I AM</h2>
+  <div class="about-grid rv d2">
+    <div class="ac ac-photo"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&auto=format&fit=crop&q=80" alt="Developer workstation — full stack PHP Laravel React development" loading="lazy"/></div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="ac ac-text" style="flex:1;">
+        <p>I'm a <strong>Full Stack Developer & IT Lead</strong> at SWOT Solutions with over <strong>20 years of professional experience</strong> building everything from lean startups to enterprise-grade applications.</p>
+        <p>My weapon of choice: <strong>PHP, Laravel</strong> on the backend paired with <strong>React & TypeScript</strong> on the frontend — a battle-tested stack for shipping real SaaS products at scale.</p>
+        <p>I obsess over clean architecture, developer experience, and interfaces that feel alive. When I'm not coding I'm mentoring engineers and hunting the next problem worth solving.</p>
+      </div>
+      <div class="ac ac-meta">
+        <div class="am-item"><label>Location</label><span>Tamil Nadu, India</span></div>
+        <div class="am-item"><label>Role</label><span>Full Stack Dev & IT Lead</span></div>
+        <div class="am-item"><label>Email</label><span><a href="mailto:karthikswot@gmail.com" style="color:var(--lime);text-decoration:none;">karthikswot@gmail.com</a></span></div>
+        <div class="am-item"><label>Status</label><span style="color:var(--lime);display:flex;align-items:center;gap:7px;"><span class="blink"></span>Open to work</span></div>
+      </div>
+    </div>
+    <div class="ac ac-lime" style="grid-column:1/-1;">
+      <p class="ac-lime-q">"I've been building the web since 2004 — from hand-coded HTML pages to architecting multi-tenant SaaS platforms that serve thousands of users every single day."</p>
+      <div class="ac-lime-sig">— Karthik Mani, Fullstack Developer & IT Lead, SWOT Solutions</div>
+    </div>
+  </div>
+</section>
 
-      // Close mobile menu when clicking a link
-      document.querySelectorAll('#mobileMenu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
-      });
+<!-- SKILLS -->
+<section id="skills" class="sec" style="border-top:1px solid var(--border);">
+  <div class="sec-lbl rv">02 — Skills</div>
+  <div class="skills-top">
+    <h2 class="sec-title rv d1">TECH<br/>STACK</h2>
+    <p class="skills-note rv d2">Two decades of expertise across the full web development spectrum — PHP to React, Laravel to SaaS.</p>
+  </div>
+  <div class="sk-grid" id="skg"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec" style="border-top:1px solid var(--border);">
+  <div class="proj-header">
+    <div><div class="sec-lbl rv">03 — Work</div><h2 class="sec-title rv d1">SELECTED<br/>PROJECTS</h2></div>
+    <p class="proj-note rv d2">PHP · Laravel · React · SaaS<br/>products shipped to production.</p>
+  </div>
+  <div class="proj-list rv d2">
+    <div class="pr" data-url="https://trichydata.com" data-img="https://nkmswot.github.io/images/trichy-data.png">
+      <div class="pr-num">01</div>
+      <div><div class="pr-name">TRICHY DATA</div><div class="pr-sub">City info platform — React, Node.js, TypeScript</div></div>
+      <div class="pr-tags"><span class="pr-tag">React</span><span class="pr-tag">Node.js</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+    <div class="pr" data-url="https://calculatorparadise.com/" data-img="https://nkmswot.github.io/images/calculators.png">
+      <div class="pr-num">02</div>
+      <div><div class="pr-name">CALCULATOR PARADISE</div><div class="pr-sub">Financial calculators SaaS — React, TypeScript, Tailwind</div></div>
+      <div class="pr-tags"><span class="pr-tag">React</span><span class="pr-tag">SaaS</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+    <div class="pr" data-url="https://expenshare.app/" data-img="https://nkmswot.github.io/images/expenshare.png">
+      <div class="pr-num">03</div>
+      <div><div class="pr-name">EXPENSHARE APP</div><div class="pr-sub">Budget tracking SaaS — React, Supabase, Tailwind</div></div>
+      <div class="pr-tags"><span class="pr-tag">SaaS</span><span class="pr-tag">React</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+    <div class="pr" data-url="https://mlmsoftworks.com" data-img="https://nkmswot.github.io/images/mlmsoftware.png">
+      <div class="pr-num">04</div>
+      <div><div class="pr-name">MLMSOFTWORKS</div><div class="pr-sub">Enterprise commission engine — PHP, Laravel, MySQL</div></div>
+      <div class="pr-tags"><span class="pr-tag">PHP</span><span class="pr-tag">Laravel</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+    <div class="pr" data-url="https://atsresume.swot.co.in" data-img="https://nkmswot.github.io/images/atsresume.png">
+      <div class="pr-num">05</div>
+      <div><div class="pr-name">ATS RESUME OPTIMIZER</div><div class="pr-sub">AI-powered SaaS — React, TypeScript, OpenAI API</div></div>
+      <div class="pr-tags"><span class="pr-tag">AI</span><span class="pr-tag">SaaS</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+    <div class="pr" data-url="https://chromewebstore.google.com/detail/nognbljbdjgcnimgimlpaginadeiiefe" data-img="https://nkmswot.github.io/images/todo.png">
+      <div class="pr-num">06</div>
+      <div><div class="pr-name">FOCUSED TODO</div><div class="pr-sub">Chrome extension — TypeScript, JavaScript, Tailwind</div></div>
+      <div class="pr-tags"><span class="pr-tag">Extension</span></div>
+      <div class="pr-arr">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec" style="border-top:1px solid var(--border);">
+  <div class="sec-lbl rv">04 — Career</div>
+  <h2 class="sec-title rv d1">EXPERIENCE</h2>
+  <div class="exp-layout rv d2">
+    <div class="exp-tabs" role="tablist">
+      <button class="et on" data-p="e0">SWOT — Lead</button>
+      <button class="et" data-p="e1">SWOT — PM</button>
+      <button class="et" data-p="e2">Antz</button>
+      <button class="et" data-p="e3">Hanson IT</button>
+      <button class="et" data-p="e4">Dreams</button>
+    </div>
+    <div>
+      <div class="ep on" id="e0"><div class="ep-co">SWOT Solutions · Trichy, Tamil Nadu</div><div class="ep-title">Full Stack Developer<br/>&amp; IT Lead</div><div class="ep-period">2018 — Present</div><div class="ep-body">Led architecture and development of enterprise web applications using <strong>PHP, Laravel, React</strong> and Node.js. Mentored junior developers, established engineering best practices, and shipped multiple <strong>SaaS products</strong> to thousands of daily active users.</div><div class="ep-chips"><span class="ep-chip">PHP</span><span class="ep-chip">Laravel</span><span class="ep-chip">React</span><span class="ep-chip">Node.js</span><span class="ep-chip">SaaS</span><span class="ep-chip">MySQL</span></div></div>
+      <div class="ep" id="e1"><div class="ep-co">SWOT Solutions · Trichy, Tamil Nadu</div><div class="ep-title">Project Manager &amp;<br/>Software Developer</div><div class="ep-period">2009 — 2018</div><div class="ep-body">Delivered multiple client projects across <strong>PHP, Laravel, CodeIgniter, Yii, MySQL</strong> and WordPress. Balanced hands-on development with full project ownership — scoping, delivery, and stakeholder management.</div><div class="ep-chips"><span class="ep-chip">PHP</span><span class="ep-chip">Laravel</span><span class="ep-chip">CodeIgniter</span><span class="ep-chip">WordPress</span><span class="ep-chip">MySQL</span></div></div>
+      <div class="ep" id="e2"><div class="ep-co">Antz</div><div class="ep-title">Senior Web Developer</div><div class="ep-period">2008 — 2009</div><div class="ep-body">Crafted responsive, pixel-perfect web interfaces using <strong>HTML, CSS, and JavaScript</strong>. Focused on cross-browser compatibility, performance optimisation, and UI fidelity.</div><div class="ep-chips"><span class="ep-chip">HTML</span><span class="ep-chip">CSS</span><span class="ep-chip">JavaScript</span></div></div>
+      <div class="ep" id="e3"><div class="ep-co">Hanson IT Park</div><div class="ep-title">Web Designer</div><div class="ep-period">2006 — 2008</div><div class="ep-body">Designed visually compelling, user-friendly interfaces for web applications. Established design system foundations that ensured consistent brand and UX experiences across products.</div><div class="ep-chips"><span class="ep-chip">Web Design</span><span class="ep-chip">HTML</span><span class="ep-chip">CSS</span></div></div>
+      <div class="ep" id="e4"><div class="ep-co">Dreams InfoSoft</div><div class="ep-title">Junior Web Designer</div><div class="ep-period">2004 — 2006</div><div class="ep-body">Designed web pages following predefined style guides and frameworks. The very beginning of a <strong>20+ year journey</strong> in full stack web development — from static pages to architecting enterprise SaaS platforms.</div><div class="ep-chips"><span class="ep-chip">Web Design</span><span class="ep-chip">HTML</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="sec" style="border-top:1px solid var(--border);">
+  <div class="sec-lbl rv">05 — Insights</div>
+  <h2 class="sec-title rv d1">FROM THE<br/>BLOG</h2>
+  <div class="blog-grid rv d2">
+    <article class="bc big" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="bc-thumb"><img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=900&auto=format&fit=crop&q=80" alt="Laravel multi-tenant SaaS architecture PHP" loading="lazy"/></div>
+      <div class="bc-body">
+        <div class="bc-cat">Laravel · SaaS Architecture</div>
+        <a href="blog-laravel-multitenant-saas.html" class="bc-title" itemprop="headline">Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale</a>
+        <p class="bc-excerpt" itemprop="description">A deep-dive into multi-tenancy strategies — database-per-tenant vs shared schema — with practical PHP &amp; Laravel implementation patterns drawn from 20 years of shipping SaaS products.</p>
+        <div class="bc-meta"><span>April 2025</span><span>12 min read</span><span>Karthik Mani</span></div>
+        <a href="blog-laravel-multitenant-saas.html" class="bc-read">Read Article →</a>
+      </div>
+    </article>
+    <article class="bc" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="bc-thumb"><img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=700&auto=format&fit=crop&q=80" alt="React and Laravel full stack setup TypeScript" loading="lazy"/></div>
+      <div class="bc-body">
+        <div class="bc-cat">React · Full Stack</div>
+        <a href="blog-react-laravel-fullstack.html" class="bc-title" itemprop="headline">React + Laravel: The Full Stack Setup I Use on Every Project</a>
+        <div class="bc-meta"><span>March 2025</span><span>10 min read</span></div>
+        <a href="blog-react-laravel-fullstack.html" class="bc-read">Read Article →</a>
+      </div>
+    </article>
+    <article class="bc" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="bc-thumb"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&auto=format&fit=crop&q=80" alt="Solo developer launching SaaS product PHP Laravel" loading="lazy"/></div>
+      <div class="bc-body">
+        <div class="bc-cat">SaaS · Indie Dev</div>
+        <a href="blog-launch-saas-solo-fullstack.html" class="bc-title" itemprop="headline">Idea to Production: Launching a SaaS App Solo as a Full Stack Dev</a>
+        <div class="bc-meta"><span>February 2025</span><span>11 min read</span></div>
+        <a href="blog-launch-saas-solo-fullstack.html" class="bc-read">Read Article →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec" style="border-top:1px solid var(--border);">
+  <div class="sec-lbl rv">06 — Contact</div>
+  <div class="contact-layout">
+    <div>
+      <h2 class="contact-giant rv">LET'S<br/>BUILD<br/><span class="lime">SOME-<br/>THING.</span></h2>
+      <div class="ci-list rv d1">
+        <div class="ci-row"><span class="ci-lbl">Email</span><span class="ci-val"><a href="mailto:karthikswot@gmail.com">karthikswot@gmail.com</a></span></div>
+        <div class="ci-row"><span class="ci-lbl">Location</span><span class="ci-val">Tamil Nadu, India</span></div>
+        <div class="ci-row"><span class="ci-lbl">LinkedIn</span><span class="ci-val"><a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" rel="noopener noreferrer">softwarekarthik</a></span></div>
+        <div class="ci-row"><span class="ci-lbl">Available</span><span class="ci-val" style="color:var(--lime);display:flex;align-items:center;gap:8px;"><span class="blink"></span>Full-time &amp; Contract</span></div>
+      </div>
+    </div>
+    <form id="cf" novalidate class="rv d2">
+      <div class="fg"><label class="fl" for="cn">Your Name</label><input class="fi" id="cn" type="text" placeholder="Jane Smith" required/></div>
+      <div class="fg"><label class="fl" for="ce">Email Address</label><input class="fi" id="ce" type="email" placeholder="jane@company.com" required/></div>
+      <div class="fg"><label class="fl" for="cm">Message</label><textarea class="fi" id="cm" placeholder="Tell me about your PHP, Laravel or React project..." required></textarea></div>
+      <button type="submit" class="f-sub">Send Message →</button>
+      <div class="f-ok" id="fok">✓ &nbsp;Message received — I'll be in touch soon.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <a href="#hero" class="fl2"><em>K</em>arthik<em>.</em></a>
+  <p class="fc">© 2025 Karthik Mani · Full Stack Developer · PHP · Laravel · React · SaaS · Tamil Nadu</p>
+  <div class="flinks"><a href="mailto:karthikswot@gmail.com">Email</a><a href="https://www.linkedin.com/in/softwarekarthik/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="#hero">Top ↑</a></div>
+</footer>
+
+<script>
+(function(){const lf=document.getElementById('lf'),lp=document.getElementById('lp'),ld=document.getElementById('loader');let p=0;const t=setInterval(()=>{p=Math.min(100,p+(Math.random()*15|0)+2);lf.style.width=p+'%';lp.textContent='LOADING '+p+'%';if(p>=100){clearInterval(t);setTimeout(()=>{ld.classList.add('out');setTimeout(()=>ld.remove(),700);},350);}},90);})();
+(function(){const C=document.getElementById('CUR');document.addEventListener('mousemove',e=>{C.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)';});document.querySelectorAll('a,button,.pr,.sk-card,.bc,.et').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));});})();
+let mO=false;const mob=document.getElementById('mob'),hb=document.getElementById('hburg'),hs1=document.getElementById('hs1'),hs2=document.getElementById('hs2');
+hb.addEventListener('click',()=>{mO=!mO;mob.classList.toggle('on',mO);hs1.style.transform=mO?'rotate(45deg) translate(4px,4px)':'';hs2.style.transform=mO?'rotate(-45deg) translate(4px,-4px)':'';});
+function cM(){mO=false;mob.classList.remove('on');hs1.style.transform='';hs2.style.transform='';}
+const skills=[{n:'PHP',p:90,d:'Enterprise apps · APIs · Custom frameworks'},{n:'Laravel',p:90,d:'MVC · Queues · SaaS · Sanctum'},{n:'HTML/CSS',p:95,d:'Semantic · Animations · Responsive'},{n:'JavaScript',p:90,d:'ES2023+ · Async · DOM mastery'},{n:'React',p:70,d:'Hooks · State management · SPA'},{n:'TypeScript',p:70,d:'Typed contracts · Generics'},{n:'Node.js',p:70,d:'REST APIs · Express · Serverless'},{n:'Python',p:70,d:'Scripting · Data · AI tooling'}];
+const sg=document.getElementById('skg');skills.forEach(s=>{sg.innerHTML+=`<div class="sk-card rv"><div class="sk-name">${s.n}</div><div class="sk-pct">${s.p}%</div><div class="sk-track"><div class="sk-bar" data-w="${s.p}"></div></div><div class="sk-desc">${s.d}</div></div>`;});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('v');e.target.querySelectorAll('.sk-bar').forEach(b=>{b.style.width=b.dataset.w+'%';});io.unobserve(e.target);});},{threshold:.1});
+setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>io.observe(el)),200);
+const fpv=document.getElementById('fpv'),fpvi=document.getElementById('fpvi');
+document.querySelectorAll('.pr').forEach(r=>{r.addEventListener('mouseenter',()=>{if(r.dataset.img){fpvi.src=r.dataset.img;fpv.style.opacity='1';fpv.style.transform='scale(1)';}});r.addEventListener('mouseleave',()=>{fpv.style.opacity='0';fpv.style.transform='scale(.92)';});r.addEventListener('mousemove',e=>{fpv.style.left=(e.clientX+20)+'px';fpv.style.top=(e.clientY-82)+'px';});r.addEventListener('click',()=>{if(r.dataset.url)window.open(r.dataset.url,'_blank','noopener');});});
+document.querySelectorAll('.et').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.et').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.ep').forEach(x=>x.classList.remove('on'));t.classList.add('on');document.getElementById(t.dataset.p).classList.add('on');});});
+document.getElementById('cf').addEventListener('submit',function(e){e.preventDefault();const b=this.querySelector('.f-sub');b.textContent='Sending…';b.disabled=true;setTimeout(()=>{b.style.display='none';document.getElementById('fok').style.display='block';},1000);});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 </script>
-
-
-  </body>
+</body>
 </html>

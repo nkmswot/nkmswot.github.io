@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Idea to Production: Launching a SaaS App Solo as a Full Stack Developer | Karthik Mani</title>
+<meta name="description" content="A honest, practical guide to launching a SaaS product solo as a full stack developer. Covers tech stack selection (PHP, Laravel, React), payments, infrastructure, avoiding feature creep, and lessons from shipping multiple real SaaS apps."/>
+<meta name="keywords" content="launch SaaS solo developer, indie SaaS PHP Laravel, full stack developer SaaS, build SaaS app PHP, Laravel SaaS product, solo founder developer, SaaS bootstrapped PHP React, indie hacker Laravel, Karthik Mani SaaS"/>
+<meta name="author" content="Karthik Mani"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html"/>
+<meta property="og:title" content="Idea to Production: Launching a SaaS App Solo as a Full Stack Developer"/>
+<meta property="og:description" content="Honest lessons from shipping multiple solo SaaS products — PHP, Laravel, React stack, payments, infra, and avoiding the feature creep trap."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80"/>
+<meta property="article:author" content="Karthik Mani"/>
+<meta property="article:published_time" content="2025-02-14"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Idea to Production: Launching a SaaS App Solo as a Full Stack Developer"/>
+<meta name="twitter:description" content="Honest lessons from shipping multiple solo SaaS products with PHP, Laravel and React."/>
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Idea to Production: Launching a SaaS App Solo as a Full Stack Developer","description":"A practical guide to launching a SaaS product solo using PHP, Laravel and React.","author":{"@type":"Person","name":"Karthik Mani","url":"https://nkmswot.github.io/"},"datePublished":"2025-02-14","publisher":{"@type":"Person","name":"Karthik Mani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--lime:#C8FF00;--void:#090909;--slate:#141414;--chalk:#F0EDE6;--muted:#777;--border:rgba(240,237,230,.08);--prose:#d4d0c8;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--void);color:var(--chalk);overflow-x:hidden;line-height:1.7;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--lime);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(9,9,9,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em;color:var(--chalk);text-decoration:none;}
+.nav-logo em{color:var(--lime);font-style:normal;}
+.nav-back{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.nav-back:hover{color:var(--lime);}
+.post-hero{padding:140px 48px 80px;max-width:900px;margin:0 auto;}
+.post-cat{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.post-cat::before{content:'';display:block;width:32px;height:1px;background:var(--lime);}
+.post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6vw,82px);line-height:.9;letter-spacing:.02em;margin-bottom:28px;}
+.post-meta{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:48px;}
+.meta-item{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.meta-item strong{color:var(--chalk);display:block;margin-top:2px;font-size:.7rem;}
+.share-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.share-lbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s,background .2s;border-radius:2px;background:none;cursor:pointer;}
+.share-btn.tw{color:#1da1f2;border-color:rgba(29,161,242,.2);}.share-btn.tw:hover{background:rgba(29,161,242,.08);border-color:#1da1f2;}
+.share-btn.li{color:#0077b5;border-color:rgba(0,119,181,.2);}.share-btn.li:hover{background:rgba(0,119,181,.08);border-color:#0077b5;}
+.share-btn.cp{color:var(--lime);border-color:rgba(200,255,0,.2);}.share-btn.cp:hover{background:rgba(200,255,0,.08);border-color:var(--lime);}
+.post-cover{width:100%;max-width:900px;margin:0 auto 64px;padding:0 48px;}
+.post-cover img{width:100%;height:480px;object-fit:cover;filter:grayscale(20%) contrast(1.05);display:block;}
+.post-cover-cap{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;margin-top:10px;text-align:center;}
+.post-body{max-width:760px;margin:0 auto;padding:0 48px 120px;}
+.post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);letter-spacing:.03em;line-height:.95;color:var(--chalk);margin-top:72px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.post-body h3{font-family:'Instrument Serif',serif;font-size:1.45rem;font-style:italic;color:var(--chalk);margin-top:40px;margin-bottom:14px;}
+.post-body p{font-size:1.02rem;line-height:1.85;color:var(--prose);margin-bottom:22px;}
+.post-body p strong{color:var(--chalk);}
+.post-body ul,.post-body ol{margin:0 0 24px 0;padding-left:0;list-style:none;}
+.post-body ul li,.post-body ol li{position:relative;padding-left:24px;font-size:.98rem;line-height:1.8;color:var(--prose);margin-bottom:10px;}
+.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--lime);font-family:'IBM Plex Mono',monospace;}
+.post-body ol{counter-reset:ol;}
+.post-body ol li{counter-increment:ol;}
+.post-body ol li::before{content:counter(ol,decimal-leading-zero);position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--lime);top:3px;}
+.post-body pre{background:var(--slate);border:1px solid var(--border);padding:28px;overflow-x:auto;margin:32px 0;}
+.post-body pre code{font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.7;color:#c8ffa0;}
+.post-body code:not(pre code){font-family:'IBM Plex Mono',monospace;font-size:.82rem;background:rgba(200,255,0,.07);color:var(--lime);padding:2px 7px;border-radius:2px;}
+.post-body blockquote{border-left:2px solid var(--lime);margin:36px 0;padding:20px 28px;background:rgba(200,255,0,.04);}
+.post-body blockquote p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--chalk);margin:0;}
+.callout{background:var(--slate);border:1px solid var(--border);border-left:3px solid var(--lime);padding:24px 28px;margin:32px 0;}
+.callout-lbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+.callout p{font-size:.9rem;color:var(--prose);margin:0;line-height:1.7;}
+.toc{background:var(--slate);border:1px solid var(--border);padding:28px 32px;margin-bottom:48px;}
+.toc-title{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;}
+.toc ol{padding-left:0;list-style:none;counter-reset:toc;}
+.toc ol li{counter-increment:toc;padding-left:28px;position:relative;margin-bottom:8px;}
+.toc ol li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--lime);top:3px;}
+.toc a{font-size:.88rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.toc a:hover{color:var(--lime);}
+/* Milestone timeline */
+.timeline{margin:40px 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--lime),rgba(200,255,0,.1));}
+.tl-item{position:relative;margin-bottom:32px;}
+.tl-dot{position:absolute;left:-28px;top:4px;width:13px;height:13px;background:var(--lime);border-radius:50%;border:2px solid var(--void);}
+.tl-week{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:5px;}
+.tl-desc{font-size:.92rem;color:var(--prose);line-height:1.7;}
+.tl-desc strong{color:var(--chalk);}
+/* Stack card */
+.stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:28px 0;}
+.stack-card{background:var(--slate);border:1px solid var(--border);padding:20px;border-left:2px solid var(--lime);}
+.stack-card h4{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.04em;color:var(--chalk);margin-bottom:6px;}
+.stack-card p{font-size:.8rem;color:var(--muted);line-height:1.6;margin:0;}
+.author-box{border:1px solid var(--border);padding:32px;margin-top:72px;display:flex;gap:24px;align-items:flex-start;}
+.author-img{width:72px;height:72px;flex-shrink:0;}
+.author-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(20%);}
+.author-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;line-height:1;}
+.author-title{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin:5px 0 10px;}
+.author-bio{font-size:.85rem;color:var(--muted);line-height:1.7;}
+.related{max-width:760px;margin:0 auto;padding:0 48px 80px;}
+.related-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:24px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.rel-card{border:1px solid var(--border);background:var(--slate);padding:24px;text-decoration:none;display:block;transition:border-color .25s;}
+.rel-card:hover{border-color:rgba(200,255,0,.3);}
+.rel-cat{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+.rel-ttl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.03em;color:var(--chalk);line-height:1.05;}
+footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.08em;text-decoration:none;color:var(--chalk);}
+.fl em{color:var(--lime);font-style:normal;}
+.fc{font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--muted);letter-spacing:.08em;}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--lime);z-index:200;width:0;transition:width .1s linear;}
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  .post-hero,.post-cover,.post-body,.related{padding-left:20px;padding-right:20px;}
+  .post-cover img{height:260px;}
+  .post-title{font-size:clamp(38px,10vw,60px);}
+  .post-meta{gap:16px;}
+  .related-grid,.stack-grid{grid-template-columns:1fr;}
+  .author-box{flex-direction:column;}
+  footer{padding:20px;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><em>K</em>arthik<em>.</em></a>
+  <a href="index.html#blog" class="nav-back">← Back to Blog</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-cat">SaaS · Indie Dev · Full Stack</div>
+  <h1 class="post-title">Idea to Production: Launching a SaaS App Solo as a Full Stack Developer</h1>
+  <div class="post-meta">
+    <div class="meta-item">Author<strong>Karthik Mani</strong></div>
+    <div class="meta-item">Published<strong>February 14, 2025</strong></div>
+    <div class="meta-item">Read Time<strong>11 min read</strong></div>
+    <div class="meta-item">Category<strong>SaaS · PHP · Laravel · React</strong></div>
+    <div class="share-bar">
+      <span class="share-lbl">Share:</span>
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Idea+to+Production%3A+Launching+a+SaaS+App+Solo+as+a+Full+Stack+Dev&url=https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html" target="_blank" rel="noopener noreferrer">𝕏 Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+      <button class="share-btn cp" onclick="copyLink()">⧉ Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<div class="post-cover">
+  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=80" alt="Solo developer launching a SaaS application — full stack PHP Laravel React"/>
+  <div class="post-cover-cap">The solo founder's desk — where product decisions, code, and customer feedback all converge</div>
+</div>
+
+<div class="post-body">
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#honest-context">Honest Context: What I've Actually Shipped</a></li>
+      <li><a href="#stack-decision">The Stack Decision: Why PHP, Laravel and React</a></li>
+      <li><a href="#validate-first">Validate Before You Build</a></li>
+      <li><a href="#mvp-timeline">The MVP Timeline That Actually Works</a></li>
+      <li><a href="#payments">Payments: Get This Right Early</a></li>
+      <li><a href="#infrastructure">Infrastructure Without the Overhead</a></li>
+      <li><a href="#feature-creep">The Feature Creep Trap</a></li>
+      <li><a href="#post-launch">After Launch: The Part Nobody Talks About</a></li>
+      <li><a href="#real-talk">Real Talk: What I'd Do Differently</a></li>
+    </ol>
+  </div>
+
+  <p>The internet is full of "how I built a SaaS in a weekend" articles written by people who had either already built twenty products before that one, or who are quietly omitting the months of false starts that preceded the weekend sprint. I want to write something more honest than that.</p>
+
+  <p>I'm a <strong>full stack developer with over 20 years of experience building web applications</strong> in PHP, Laravel, and React. In that time I've shipped multiple SaaS products — some that found users, some that quietly died, and a few that are still running and generating revenue today. This article is a distillation of what I've actually learned from that process: the decisions that mattered, the shortcuts that cost me later, and the patterns I now apply to every new product I build.</p>
+
+  <p>If you're a developer who wants to build and launch a <strong>SaaS product solo</strong>, this is written specifically for you. It assumes you can write the code. The hard parts are the decisions around the code.</p>
+
+  <blockquote><p>"The biggest advantage a full stack developer has as a solo founder is the ability to move extremely fast from idea to working product. The biggest risk is that moving fast in the wrong direction is just an efficient way to waste time."</p></blockquote>
+
+  <h2 id="honest-context">Honest Context: What I've Actually Shipped</h2>
+
+  <p>Before taking advice from anyone on the internet, you should know what they've actually shipped. Here's mine:</p>
+
+  <p><strong>ExpenShare</strong> is a budget tracking SaaS application built with React and Supabase. It helps individuals and small groups track shared expenses without the ceremony of a spreadsheet. It's live at expenshare.app and has real users who pay for it.</p>
+
+  <p><strong>Calculator Paradise</strong> is a collection of precise financial calculators built with React and TypeScript. It sounds unglamorous — and it is — but unglamorous tools often have the most durable user bases. People who need a reliable mortgage calculator at 11 PM aren't looking for beautiful design; they're looking for accurate math and a fast, distraction-free interface.</p>
+
+  <p><strong>ATS Resume Optimizer</strong> is an AI-powered SaaS tool that helps job seekers optimize their resumes for Applicant Tracking Systems. Built with React, TypeScript, and the OpenAI API, it sits at the intersection of a genuine user pain point and a technology that makes solving it tractable for a solo developer.</p>
+
+  <p>Each of these taught me something different. Together they form the foundation of the opinions in this article.</p>
+
+  <h2 id="stack-decision">The Stack Decision: Why PHP, Laravel and React</h2>
+
+  <p>When you're building alone, your technology choices have enormous consequences. The wrong stack doesn't just slow you down — it isolates you. You can't hire help, you can't find tutorials when you're stuck at midnight, and you can't hand the project off when life intervenes.</p>
+
+  <p>My stack for solo <strong>SaaS development is PHP, Laravel, and React</strong> — and I come back to it not out of habit but out of deliberate re-evaluation every time I start a new project. Here's why each piece earns its place:</p>
+
+  <div class="stack-grid">
+    <div class="stack-card">
+      <h4>PHP / Laravel</h4>
+      <p>20 years of maturity. Authentication, queues, email, file storage, cron jobs — all solved, all documented, all consistent. Hosting is cheap and widely available. The hiring pool is enormous if you ever need help.</p>
+    </div>
+    <div class="stack-card">
+      <h4>React + TypeScript</h4>
+      <p>Component model maps to real UI problems. TypeScript catches entire categories of bugs before they reach users. The ecosystem — TanStack Query, Zustand, React Router — is stable and battle-tested.</p>
+    </div>
+    <div class="stack-card">
+      <h4>MySQL / PostgreSQL</h4>
+      <p>Relational databases are the right default for SaaS. They give you transactions, foreign keys, and a query language that every developer already knows. Don't reach for NoSQL until you have a specific reason.</p>
+    </div>
+    <div class="stack-card">
+      <h4>Stripe</h4>
+      <p>The payment layer of the stack is as important as everything else. Stripe's API is the most developer-friendly in the industry, and their Laravel Cashier integration makes subscription billing genuinely simple.</p>
+    </div>
+  </div>
+
+  <p>The advice to "use what you know" is wisdom that sounds trite until you've wasted three weeks learning a new framework while also trying to build a product. <strong>Your competitive advantage as a solo developer is speed</strong>. The stack that lets you move fastest in the first six months is almost always the one you know best.</p>
+
+  <h2 id="validate-first">Validate Before You Build</h2>
+
+  <p>This is the part most developers skip because building is more comfortable than selling. It is also the most important phase of the entire process.</p>
+
+  <p>Before I write a single line of application code on a new SaaS idea, I spend time answering three questions as specifically as possible:</p>
+
+  <ol>
+    <li><strong>Who, exactly, has this problem?</strong> Not "small businesses" — a real answer looks like "freelance graphic designers who invoice more than five clients per month and currently use spreadsheets to track project time."</li>
+    <li><strong>How are they solving it today?</strong> Every problem has an existing solution, even if that solution is a spreadsheet, a sticky note, or doing nothing. Understanding the incumbent solution tells you what your product needs to beat and what it can afford to be worse at.</li>
+    <li><strong>Will they pay for a better solution?</strong> The answer to this question is not "yes, I think so." The answer is either "yes, I have pre-signups or letters of intent from five people who match the profile," or "I don't know yet."</li>
+  </ol>
+
+  <p>Validation doesn't have to mean months of customer discovery interviews. It can mean posting in a relevant community and counting how many people say "I have this problem." It can mean building a landing page with a waitlist and measuring how many people sign up after seeing the value proposition. What it cannot mean is just trusting your instinct that people will want it.</p>
+
+  <h2 id="mvp-timeline">The MVP Timeline That Actually Works</h2>
+
+  <p>Here is how I structure the first eight weeks of a new <strong>solo SaaS project using Laravel and React</strong>. This isn't a rigid prescription but a template I've refined across multiple product launches:</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 1–2 · Foundation</div>
+      <div class="tl-desc">Scaffold the <strong>Laravel API</strong> and React frontend. Set up authentication with Sanctum, configure the database schema for core entities, and get the CI/CD pipeline working so deploys are one command. This boring infrastructure work prevents a thousand headaches later.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 3–4 · Core Feature</div>
+      <div class="tl-desc">Build only the single feature that delivers the core promise of the product. Not the dashboard, not the settings page, not the integrations. The one thing that makes your product worth using. Everything else is distraction at this stage.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 5 · Payments</div>
+      <div class="tl-desc">Integrate <strong>Stripe with Laravel Cashier</strong>. Set up a free trial, one paid plan, and the upgrade flow. This feels early, but shipping without a payment path means you'll always find a reason to delay monetisation — and then you'll never know if anyone would actually pay.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 6 · Polish & Onboarding</div>
+      <div class="tl-desc">The first-run experience determines whether new users stick around long enough to see your product's value. Spend a full week on <strong>empty states, helpful error messages, and a guided onboarding flow</strong>. Most solo founders skip this. It's why most SaaS products have terrible retention.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Week 7–8 · Soft Launch</div>
+      <div class="tl-desc">Launch to your waitlist and a handful of relevant communities. Watch how people use the product. Talk to every single person who signs up in the first two weeks. What you learn in this phase will reshape your roadmap more than anything you planned in week one.</div>
+    </div>
+  </div>
+
+  <h2 id="payments">Payments: Get This Right Early</h2>
+
+  <p>I cannot stress this enough: integrate payments in week five, not week fifteen. The psychology of having money in the product — even if nobody has paid yet — changes how you build it. You start asking "would someone pay for this feature?" instead of "is this feature cool?"</p>
+
+  <p><strong>Laravel Cashier</strong> makes Stripe integration genuinely painless. Subscription management, invoice generation, usage-based billing, trial periods, grace periods — it's all handled. Here's the minimum you need for a functional subscription flow:</p>
+
+  <pre><code>// routes/web.php
+Route::post('/subscribe', [BillingController::class, 'subscribe'])
+    ->middleware(['auth', 'verified']);
+
+// app/Http/Controllers/BillingController.php
+public function subscribe(Request $request): RedirectResponse
+{
+    $request->validate([
+        'payment_method' => ['required', 'string'],
+        'plan'           => ['required', Rule::in(['starter', 'pro'])],
+    ]);
+
+    $priceId = config("billing.plans.{$request->plan}.stripe_price_id");
+
+    $request->user()
+        ->newSubscription('default', $priceId)
+        ->trialDays(14)
+        ->create($request->payment_method);
+
+    return redirect()->route('dashboard')
+        ->with('success', 'Welcome to Pro! Your 14-day trial has started.');
+}</code></pre>
+
+  <div class="callout">
+    <div class="callout-lbl">Pricing Advice</div>
+    <p>Your first pricing is almost certainly wrong, and that's fine. What matters is that you pick a number and charge it. A common mistake is setting prices too low because you feel guilty charging for something you built yourself. Price based on the value delivered to the customer, not the hours you spent building it. You can always adjust — going up is harder than going down, so start slightly higher than feels comfortable.</p>
+  </div>
+
+  <h2 id="infrastructure">Infrastructure Without the Overhead</h2>
+
+  <p>As a solo developer, your infrastructure goal is simplicity first, performance second, cost third. A product that goes down every week because the infrastructure is too complex to maintain is worse than a slightly slower product that stays up reliably.</p>
+
+  <p>My current default setup for a new <strong>Laravel SaaS application</strong>:</p>
+
+  <ul>
+    <li><strong>Application server:</strong> A single VPS on Hetzner or DigitalOcean running Laravel with Laravel Forge for server management. Forge handles Nginx, PHP-FPM, SSL, and deployment hooks — removing hours of server admin from my week.</li>
+    <li><strong>Database:</strong> Managed MySQL or PostgreSQL from the same VPS provider. Managed databases handle backups, failover, and updates. The cost premium is worth every rupee for a solo developer.</li>
+    <li><strong>Frontend:</strong> React SPA deployed to Cloudflare Pages. It's free, globally distributed, and deploys on every git push. Zero configuration for SSL and CDN.</li>
+    <li><strong>File storage:</strong> Cloudflare R2 or AWS S3. S3-compatible, Laravel's Flysystem integrates with both, and you only pay for what you store.</li>
+    <li><strong>Email:</strong> Resend or Postmark for transactional email. Both have Laravel integrations and generous free tiers that will last you through early growth.</li>
+    <li><strong>Error monitoring:</strong> Sentry. Free tier covers most early-stage apps and the Laravel SDK integrates in five minutes. You need to know when things break before your users tell you.</li>
+  </ul>
+
+  <p>This stack costs roughly $30–50 per month before you have significant traffic. That's a reasonable bet to take on a product idea.</p>
+
+  <h2 id="feature-creep">The Feature Creep Trap</h2>
+
+  <p>Feature creep is the primary cause of solo SaaS products that never launch. It's seductive because every feature you add feels like progress — you're building, you're writing code, you're making the product better. But every feature you add before launch is a feature that delayed your first customer, delayed your first feedback, and delayed the moment when you learn whether any of it matters.</p>
+
+  <p>I use a rule I call the <strong>"ten-user test"</strong>: before adding any feature to a pre-launch product, I ask whether ten real users have explicitly asked for it. Not whether I think they'll want it. Not whether it would make the product more complete. Whether actual humans who have the problem I'm solving have said they need this specific thing.</p>
+
+  <p>The second layer of this discipline is maintaining a written "not now" list. Every feature idea that doesn't pass the ten-user test goes on this list. This is different from a backlog — a backlog implies these things will get built eventually. A "not now" list is honest: these are ideas, and most of them will never get built, because most ideas are not worth building.</p>
+
+  <h2 id="post-launch">After Launch: The Part Nobody Talks About</h2>
+
+  <p>Launch is not the finish line. This is something that startup content conspicuously fails to address. The Product Hunt launch, the Hacker News post, the spike in sign-ups — these are exciting, but they're also temporary. What determines whether your <strong>SaaS product survives and grows</strong> is what happens in the six weeks after the initial excitement fades.</p>
+
+  <p>In that window, your job is:</p>
+
+  <ul>
+    <li><strong>Talk to churning users.</strong> Every person who signs up and doesn't convert to a paid plan, or who cancels their subscription, is a source of information. Most won't respond to your email. The ones who do will tell you things that invalidate assumptions you didn't know you were making.</li>
+    <li><strong>Identify your power users.</strong> In every early-stage product, there's a small subset of users who use the product in ways you didn't anticipate and get significantly more value from it than average. Find these people. They are showing you the real use case for your product.</li>
+    <li><strong>Instrument everything.</strong> You need to know which features are being used, where users drop off in your onboarding flow, and what actions precede a conversion to paid. Without this data you're making product decisions based on guesswork. Tools like PostHog have generous free tiers and integrate with Laravel in minutes.</li>
+    <li><strong>Fix retention before acquisition.</strong> There is no point spending time or money bringing new users into a product that fails to retain the ones you already have. A leaky bucket doesn't get fixed by pouring more water in.</li>
+  </ul>
+
+  <h2 id="real-talk">Real Talk: What I'd Do Differently</h2>
+
+  <p>Every product I've shipped has taught me something I wish I'd known before I started. Here are the most consistent lessons across all of them:</p>
+
+  <p><strong>I would validate more aggressively before writing code.</strong> In every case where a product struggled to find users, I can trace the problem back to insufficient validation. I built something I was confident people wanted, and I was wrong, and I found out six months later than I should have because I was too comfortable building to spend time talking to potential users.</p>
+
+  <p><strong>I would launch two to three weeks earlier than felt comfortable.</strong> The product is never ready. There will always be one more feature that you're sure will make the difference. Ship without it. The feedback you get from real users in a slightly rough product is worth more than the polish you would have added with those extra weeks.</p>
+
+  <p><strong>I would invest more in onboarding from day one.</strong> The onboarding flow is not a nice-to-have. It is the product experience for the majority of your users, because the majority of your users will leave during or immediately after onboarding if they don't immediately understand the value. Every hour you spend making onboarding clearer pays back in retention.</p>
+
+  <p><strong>I would resist the urge to build integrations early.</strong> Integrations feel like they unlock a wider market. In practice, they take far longer to build and maintain than you expect, they create dependencies on third-party APIs that change without warning, and they distract you from the core product. Build them when your users are explicitly blocked without them, not before.</p>
+
+  <p>Being a <strong>full stack developer is a genuine superpower for solo SaaS</strong>. You can move from idea to deployed product faster than any team of specialists. The discipline is in pointing that speed in the right direction — validating early, launching fast, listening carefully, and iterating relentlessly on the thing users actually need rather than the thing you imagined they would need.</p>
+
+  <p>The best SaaS products aren't the ones with the most features or the cleverest technology. They're the ones that solve a real problem for a real set of people and keep doing it reliably, month after month. Everything else — the tech stack, the architecture, the UI — is in service of that goal.</p>
+
+  <p>If you're building a SaaS product and want to talk through the decisions — stack, architecture, pricing, launch strategy — feel free to reach out. I've made most of the available mistakes already, and I'm happy to help you skip a few of them.</p>
+
+  <div class="author-box">
+    <div class="author-img"><img src="https://nkmswot.github.io/images/karthik.jpeg" alt="Karthik Mani — Full Stack Developer PHP Laravel React SaaS Tamil Nadu"/></div>
+    <div>
+      <div class="author-name">Karthik Mani</div>
+      <div class="author-title">Full Stack Developer & IT Lead · SWOT Solutions</div>
+      <div class="author-bio">20+ years building PHP, Laravel, React and SaaS applications from Tamil Nadu, India. Currently available for full-time and contract work. <a href="https://www.linkedin.com/in/softwarekarthik/" style="color:var(--lime);" target="_blank" rel="noopener noreferrer">Connect on LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);">
+    <div class="share-lbl" style="margin-bottom:12px;">Found this useful? Share it:</div>
+    <div class="share-bar">
+      <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Idea+to+Production%3A+Launching+a+SaaS+App+Solo+as+a+Full+Stack+Dev&url=https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html" target="_blank" rel="noopener noreferrer">𝕏 Share on Twitter</a>
+      <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://nkmswot.github.io/blog-launch-saas-solo-fullstack.html" target="_blank" rel="noopener noreferrer">in Share on LinkedIn</a>
+      <button class="share-btn cp" onclick="copyLink()">⧉ Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<div class="related">
+  <div class="related-title">Continue Reading</div>
+  <div class="related-grid">
+    <a href="blog-laravel-multitenant-saas.html" class="rel-card">
+      <div class="rel-cat">Laravel · SaaS Architecture</div>
+      <div class="rel-ttl">Building Multi-Tenant SaaS Apps with Laravel: Architecture Patterns That Scale</div>
+    </a>
+    <a href="blog-react-laravel-fullstack.html" class="rel-card">
+      <div class="rel-cat">React · Full Stack</div>
+      <div class="rel-ttl">React + Laravel: The Full Stack Setup I Use on Every Project</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="fl"><em>K</em>arthik<em>.</em></a>
+  <p class="fc">© 2025 Karthik Mani · Full Stack Developer · PHP · Laravel · React · SaaS · Tamil Nadu</p>
+  <div style="display:flex;gap:20px;">
+    <a href="index.html" style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--muted)'">Home</a>
+    <a href="index.html#contact" style="font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;" onmouseover="this.style.color='var(--lime)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{const el=document.getElementById('progress');const h=document.documentElement.scrollHeight-window.innerHeight;el.style.width=(window.scrollY/h*100)+'%';});
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>{document.querySelectorAll('.share-btn.cp').forEach(b=>{const o=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=o,2000);});});}
+</script>
+</body>
+</html>
